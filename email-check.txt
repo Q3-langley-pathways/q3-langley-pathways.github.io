@@ -1,0 +1,4 @@
+Test of email concatenation:
+- 'r' + 'singh' + '@lan.merciantrust.org.uk' = rsingh@lan.merciantrust.org.uk
+- 'm' + 'arkwick' + '@lan.merciantrust.org.uk' = markwick@lan.merciantrust.org.uk (ERROR: should be 'mar kwick')
+- 'n' + 'deasy' + '@lan.merciantrust.org.uk' = ndeasy@lan.merciantrust.org.uk

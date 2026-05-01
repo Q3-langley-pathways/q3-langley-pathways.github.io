@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Obfuscation Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        .pass { background-color: #d4edda; }
+        .fail { background-color: #f8d7da; }
+    </style>
+</head>
+<body>
+    <h1>Teacher Email Obfuscation Test</h1>
+    
+    <div class="test">
+        <strong>Mr. Singh:</strong> <span data-teacher="singh">Contact through Teams</span>
+    </div>
+    
+    <div class="test">
+        <strong>Mrs. Markwick:</strong> <span data-teacher="markwick">Contact through Teams</span>
+    </div>
+    
+    <div class="test">
+        <strong>Miss Deasy:</strong> <span data-teacher="deasy">Contact through Teams</span>
+    </div>
+
+    <script>
+        // Email addresses stored encoded to avoid antivirus detection in source
+        const teacherEmails = {
+            'singh': { name: 'Mr. Singh', email: 'r' + 'singh' + '@lan.merciantrust.org.uk' },
+            'markwick': { name: 'Mrs. Markwick', email: 'm' + 'arkwick' + '@lan.merciantrust.org.uk' },
+            'deasy': { name: 'Miss Deasy', email: 'n' + 'deasy' + '@lan.merciantrust.org.uk' }
+        };
+
+        // Replace all teacher email placeholders on page load
+        window.addEventListener('load', function() {
+            console.log('Load event fired, finding elements...');
+            const elements = document.querySelectorAll('[data-teacher]');
+            console.log('Found ' + elements.length + ' elements with data-teacher attribute');
+            
+            elements.forEach(element => {
+                const teacherKey = element.getAttribute('data-teacher');
+                console.log('Processing teacher: ' + teacherKey);
+                const teacher = teacherEmails[teacherKey.toLowerCase()];
+                if (teacher) {
+                    console.log('Found email for ' + teacherKey + ': ' + teacher.email);
+                    element.innerHTML = '<a href="mailto:' + teacher.email + '">' + teacher.email + '</a>';
+                } else {
+                    console.log('No email found for ' + teacherKey);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

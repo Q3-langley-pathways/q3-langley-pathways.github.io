@@ -1,0 +1,3084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KS4 Pathways Guide - Q3 Academy Langley</title>
+    <meta name="robots" content="noindex">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #e8e8e8;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #252540 0%, #1a2a3a 100%);
+            border-bottom: 3px solid #1a5490;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .logo-section:hover {
+            opacity: 0.9;
+        }
+
+        .school-logo {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .school-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .school-info h1 {
+            color: #5eb3f6;
+            font-size: 1.8em;
+            margin: 0;
+        }
+
+        .school-info p {
+            color: #a0a0a0;
+            font-size: 0.85em;
+            margin: 0;
+        }
+
+        .nav-back {
+            display: none;
+        }
+
+        .nav-back.active {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-back button {
+            background: #1a5490;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-back button:hover {
+            background: #134078;
+            transform: translateX(-3px);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: calc(100vh - 200px);
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* HOME PAGE */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #252540 0%, #2d3a52 100%);
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .hero h1 {
+            font-size: 3.2em;
+            color: #5eb3f6;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtext {
+            font-size: 0.95em;
+            color: #808080;
+            margin-bottom: 30px;
+        }
+
+        .hero-media-placeholder {
+            background: rgba(94, 179, 246, 0.08);
+            border: 2px dashed #5eb3f6;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 400px;
+        }
+
+        .hero-button {
+            background: linear-gradient(135deg, #5eb3f6 0%, #1a5490 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 8px;
+            font-size: 1.05em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(94, 179, 246, 0.3);
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(94, 179, 246, 0.5);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #252540 0%, #2d3a52 100%);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-top: 4px solid var(--color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .stat-icon {
+            font-size: 2.2em;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .stat-placeholder {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(94, 179, 246, 0.1);
+            border: 1px dashed #5eb3f6;
+            color: #5eb3f6;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: bold;
+            cursor: help;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 20px rgba(94, 179, 246, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: var(--color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #b0b0b0;
+            font-size: 0.95em;
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .menu-card {
+            background: #252540;
+            border-radius: 12px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-left: 5px solid var(--color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: var(--color);
+            opacity: 0.05;
+            border-radius: 50%;
+            transition: all 0.4s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+            background: #2d3a52;
+        }
+
+        .menu-card:hover::before {
+            right: -10px;
+            opacity: 0.1;
+        }
+
+        .menu-icon {
+            font-size: 3.2em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .menu-card h2 {
+            color: #5eb3f6;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-card p {
+            color: #b0b0b0;
+            font-size: 0.98em;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-card .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-card .cta:hover {
+            background: var(--color);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(94, 179, 246, 0.3);
+        }
+
+        /* Features Section */
+        .features-section {
+            background: linear-gradient(135deg, #252540 0%, #2d3a52 100%);
+            border-radius: 15px;
+            padding: 50px;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .features-section h2 {
+            color: #5eb3f6;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(94, 179, 246, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(94, 179, 246, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(94, 179, 246, 0.2));
+        }
+
+        .feature-item h3 {
+            color: #5eb3f6;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .feature-item p {
+            color: #c0c0c0;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        /* COURSE PAGE STYLES */
+        .course-page-header {
+            background: linear-gradient(135deg, var(--color) 0%, rgba(94,179,246,0.8) 100%);
+            padding: 50px 40px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+
+        .course-page-header h1 {
+            font-size: 2.8em;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .course-page-header .subject-icon-large {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .course-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.25);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .course-section {
+            background: #252540;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-left: 5px solid var(--color);
+        }
+
+        .course-section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .course-section h2 {
+            color: #5eb3f6;
+            font-size: 1.6em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .content-text {
+            color: #d0d0d0;
+            line-height: 1.8;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .content-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .content-list li {
+            color: #d0d0d0;
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 0.98em;
+            line-height: 1.7;
+        }
+
+        .content-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #5eb3f6;
+            font-weight: bold;
+        }
+
+        .assessment-box {
+            background: #2d3a52;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color);
+            margin: 20px 0;
+            line-height: 1.8;
+        }
+
+        .assessment-box strong {
+            color: #5eb3f6;
+        }
+
+        .warning-box {
+            background: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #ffb74d;
+        }
+
+        .course-footer {
+            background: #2d3a52;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 50px;
+            text-align: center;
+            border-top: 3px solid var(--color);
+        }
+
+        .course-footer button {
+            background: var(--color);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .course-footer button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(94, 179, 246, 0.3);
+        }
+
+        /* Color Variables */
+        .default { --color: #5eb3f6; }
+        .core { --color: #1a5490; }
+        .optional { --color: #7a8a5a; }
+        .vocational { --color: #8a6b7c; }
+
+        /* Home Page Course Grid */
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .course-card {
+            background: #252540;
+            border-radius: 10px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border-left: 5px solid var(--color);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+            background: #2d3a52;
+        }
+
+        .course-card h3 {
+            color: #5eb3f6;
+            font-size: 1.2em;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-card .small-badge {
+            display: inline-block;
+            background: rgba(94,179,246,0.15);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: #5eb3f6;
+            font-weight: bold;
+        }
+
+        .course-card p {
+            color: #b0b0b0;
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .media-placeholder-small {
+            background: rgba(94, 179, 246, 0.08);
+            border: 1px dashed #5eb3f6;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 0.85em;
+            color: #5eb3f6;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        footer {
+            background: #252540;
+            border-top: 3px solid #1a5490;
+            padding: 30px 20px;
+            text-align: center;
+            color: #808080;
+            margin-top: 60px;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                max-width: 100%;
+                padding: 30px 15px;
+            }
+
+            .course-page-header {
+                padding: 40px 25px;
+            }
+
+            .course-page-header h1 {
+                font-size: 2em;
+            }
+
+            .course-section {
+                padding: 25px;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero {
+                padding: 30px 15px;
+            }
+
+            .stats-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-section {
+                padding: 30px;
+            }
+
+            .course-page-header .subject-icon-large {
+                font-size: 2.5em;
+            }
+
+            .course-section {
+                padding: 20px;
+            }
+
+            .menu-card {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-section {
+                grid-template-columns: 1fr;
+            }
+
+            .course-page-header h1 {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Timeline Styles */
+        .timeline-item {
+            background: #252540;
+            border-left: 5px solid #5eb3f6;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .timeline-date {
+            color: #5eb3f6;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timeline-date::before {
+            content: '📌';
+            font-size: 1.2em;
+        }
+
+        .timeline-content {
+            color: #d0d0d0;
+            line-height: 1.8;
+            font-size: 0.98em;
+        }
+
+        /* Teacher Email Links */
+        [data-teacher] a {
+            color: #f0f0f0;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(94, 179, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        [data-teacher] a:hover {
+            color: #ffffff;
+            border-bottom-color: #5eb3f6;
+            text-shadow: 0 0 10px rgba(94, 179, 246, 0.3);
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- MAIN SITE CONTENT -->
+    <div id="mainContent">
+    <header>
+        <div class="header-content">
+            <div class="logo-section" onclick="goHome()">
+                <div class="school-logo">
+                    <img src="Logo.png" alt="Q3 Academy Langley Logo">
+                </div>
+                <div class="school-info">
+                    <h1>Q3 Academy Langley</h1>
+                    <p>KS4 Pathways Guide</p>
+                </div>
+            </div>
+            <div class="nav-back" id="navBack">
+                <button onclick="goHome()">← Back to Home</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- HOME PAGE -->
+        <div class="page active" id="homePage">
+            <div class="hero">
+                <h1>🚀 Your KS4 Journey Starts Here</h1>
+                <p>Explore subjects, understand your options, make informed choices</p>
+                <p class="hero-subtext">For students, parents, and carers - guidance explained simply for everyone</p>
+                <div class="hero-media-placeholder">
+                    <div style="font-size: 3em; margin-bottom: 10px;">🎬</div>
+                    <p style="color: #5eb3f6; font-weight: bold;">[Video/Image]</p>
+                </div>
+                <button class="hero-button" onclick="document.querySelector('.courses-grid').scrollIntoView({behavior: 'smooth'})">
+                    ↓ Start Exploring Courses
+                </button>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card default">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Subject & Course Options</div>
+                    <div class="stat-placeholder" title="Additional content">[Text]</div>
+                </div>
+                <div class="stat-card default">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">GCSE & Vocational Recognized</div>
+                </div>
+                <div class="stat-card default">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number">5-8</div>
+                    <div class="stat-label">Total Subjects You'll Study</div>
+                </div>
+                <div class="stat-card default">
+                    <div class="stat-icon">1️⃣</div>
+                    <div class="stat-number">9-1</div>
+                    <div class="stat-label">GCSE Grading Scale</div>
+                </div>
+            </div>
+
+            <h2 style="color: #5eb3f6; font-size: 2em; margin-bottom: 30px; text-align: center;">Explore All 24 Courses</h2>
+            <p style="text-align: center; color: #b0b0b0; margin-bottom: 40px; font-size: 1.05em;">Click any course to see detailed information about what you'll learn, how you'll be assessed, and why it matters</p>
+
+            <div class="menu-grid">
+                <div class="menu-card default" onclick="goToPage('gradingSystem')">
+                    <div class="menu-icon">📊</div>
+                    <h2>Grading System</h2>
+                    <p>Understand how GCSE grades work (9-1), what they mean, and how vocational grades compare. For parents new to UK education.</p>
+                </div>
+
+                <div class="menu-card default" onclick="goToPage('pathwaysOverview')">
+                    <div class="menu-icon">🛤️</div>
+                    <h2>Understanding Pathways</h2>
+                    <p>Learn about the 3 different pathways available: Standard, Without Language, and ACE. Which one is right for you?</p>
+                </div>
+
+                <div class="menu-card default" onclick="goToPage('faqs')">
+                    <div class="menu-icon">❓</div>
+                    <h2>FAQs</h2>
+                    <p>Answers to common questions: Do I have to study languages? Can I do Separate Science? What if I don't get my choice?</p>
+                </div>
+
+                <div class="menu-card default" onclick="goToPage('timeline')">
+                    <div class="menu-icon">📅</div>
+                    <h2>Timeline & Dates</h2>
+                    <p>Key dates for the pathways process: Assembly, pathways evening, form deadline, and when you get your final decision.</p>
+                </div>
+            </div>
+
+            <h2 style="color: #5eb3f6; font-size: 2em; margin-bottom: 30px; margin-top: 50px; text-align: center;">Browse All 24 Courses</h2>
+            <p style="text-align: center; color: #b0b0b0; margin-bottom: 40px; font-size: 1.05em;">Click any course below to see detailed information</p>
+
+            <!-- CORE SUBJECTS -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #1a5490;">✓ COMPULSORY CORE SUBJECTS</h3>
+            <div class="courses-grid">
+                <div class="course-card core" onclick="goToPage('english-language')">
+                    <h3><span>📖</span> English Language & Literature</h3>
+                    <span class="small-badge">CORE</span>
+                    <p>Study fiction, non-fiction, Shakespeare, and poetry. Develop reading, writing, and speaking skills essential for life.</p>
+                </div>
+                <div class="course-card core" onclick="goToPage('mathematics')">
+                    <h3><span>🔢</span> Mathematics</h3>
+                    <span class="small-badge">CORE</span>
+                    <p>Number, algebra, geometry, and statistics. Foundation-tier or higher-tier available based on ability.</p>
+                </div>
+                <div class="course-card core" onclick="goToPage('science')">
+                    <h3><span>🧪</span> Science (Choose One)</h3>
+                    <span class="small-badge">CORE</span>
+                    <p>Combined Science (2 GCSEs) or Separate Science (3 GCSEs) - biology, chemistry, and physics.</p>
+                </div>
+                <div class="course-card core" onclick="goToPage('history-geography')">
+                    <h3><span>🌍</span> History OR Geography</h3>
+                    <span class="small-badge">CORE - Choose One</span>
+                    <p>Choose between understanding past events or present-world geography and environmental issues.</p>
+                </div>
+            </div>
+
+            <!-- LANGUAGES -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #7a8a5a;">🗣️ LANGUAGES</h3>
+            <div class="courses-grid">
+                <div class="course-card optional" onclick="goToPage('french')">
+                    <h3><span>🇫🇷</span> GCSE French</h3>
+                    <span class="small-badge">OPTIONAL</span>
+                    <p>Develop practical language skills. Selection by MFL team based on Year 9 performance.</p>
+                </div>
+                <div class="course-card optional" onclick="goToPage('spanish')">
+                    <h3><span>🇪🇸</span> GCSE Spanish</h3>
+                    <span class="small-badge">OPTIONAL</span>
+                    <p>Same themes as French. Build fluency in one of the world's most spoken languages.</p>
+                </div>
+            </div>
+
+            <!-- CREATIVE & PERFORMANCE -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #7a8a5a;">🎨 CREATIVE & PERFORMANCE</h3>
+            <div class="courses-grid">
+                <div class="course-card optional" onclick="goToPage('art-design')">
+                    <h3><span>🎨</span> GCSE Art & Design</h3>
+                    <span class="small-badge">OPTIONAL</span>
+                    <p>Fine art, photography, or textiles. Create portfolio and respond to set brief during exam.</p>
+                </div>
+                <div class="course-card optional" onclick="goToPage('music')">
+                    <h3><span>🎵</span> GCSE Music</h3>
+                    <span class="small-badge">OPTIONAL</span>
+                    <p>Perform, compose, and appraise music. Mix of performances, compositions, and written exam.</p>
+                </div>
+                <div class="course-card vocational" onclick="goToPage('music-technology')">
+                    <h3><span>🎧</span> NCFE Music Technology</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Learn music production, DAW software, recording, and composing. More practical than GCSE Music.</p>
+                </div>
+                <div class="course-card vocational" onclick="goToPage('performing-arts')">
+                    <h3><span>🎭</span> BTEC Performing Arts</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Performance-based. Explore, develop skills, and respond to brief. For actors, dancers, and performers.</p>
+                </div>
+            </div>
+
+            <!-- ACADEMIC SUBJECTS -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #7a8a5a;">📚 ACADEMIC SUBJECTS</h3>
+            <div class="courses-grid">
+                <div class="course-card optional" onclick="goToPage('computer-science')">
+                    <h3><span>💻</span> GCSE Computer Science</h3>
+                    <span class="small-badge">OPTIONAL - Selective</span>
+                    <p>Systems, networks, programming, data. Grade 7+ Maths required. Only 30 places available.</p>
+                </div>
+                <div class="course-card optional" onclick="goToPage('religious-studies')">
+                    <h3><span>⛪</span> GCSE Religious Studies</h3>
+                    <span class="small-badge">OPTIONAL</span>
+                    <p>Study Christianity and Sikhism. Explore thematic issues: peace, crime, human rights, religion & life.</p>
+                </div>
+                <div class="course-card optional" onclick="goToPage('further-maths')">
+                    <h3><span>🔢</span> Level 2 Further Maths</h3>
+                    <span class="small-badge">OPTIONAL</span>
+                    <p>Advanced algebra, calculus, matrices. Grade 8+ Maths. Only for those planning A-Level Maths.</p>
+                </div>
+            </div>
+
+            <!-- MEDIA & TECHNOLOGY -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #8a6b7c;">🎮 MEDIA & TECHNOLOGY</h3>
+            <div class="courses-grid">
+                <div class="course-card vocational" onclick="goToPage('creative-imedia')">
+                    <h3><span>🎮</span> OCR Creative iMedia</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Graphic design, web design, interactive media. Alternative if Computer Science not selected.</p>
+                </div>
+            </div>
+
+            <!-- BUSINESS SUBJECTS -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #7a8a5a;">💼 BUSINESS SUBJECTS</h3>
+            <div class="courses-grid">
+                <div class="course-card optional" onclick="goToPage('business-studies')">
+                    <h3><span>📊</span> GCSE Business Studies</h3>
+                    <span class="small-badge">OPTIONAL</span>
+                    <p>Business activity, operations, finance, marketing, HR. Foundation for business careers.</p>
+                </div>
+                <div class="course-card vocational" onclick="goToPage('retail-business')">
+                    <h3><span>🛍️</span> WJEC Retail Business</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Retail industry, customer service, merchandising. More practical focus than GCSE Business.</p>
+                </div>
+            </div>
+
+            <!-- HEALTH, SOCIAL CARE, CHILDCARE -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #8a6b7c;">🏥 HEALTH, SOCIAL CARE & CHILDCARE</h3>
+            <div class="courses-grid">
+                <div class="course-card vocational" onclick="goToPage('child-development')">
+                    <h3><span>👶</span> OCR Child Development</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Pregnancy, childcare, child development. For those interested in early years education.</p>
+                </div>
+                <div class="course-card vocational" onclick="goToPage('health-social-care')">
+                    <h3><span>🏥</span> BTEC Health & Social Care</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Human development, health services, wellbeing. Path to nursing, social work, or healthcare.</p>
+                </div>
+            </div>
+
+            <!-- SPORTS SUBJECTS -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #8a6b7c;">⚽ SPORTS SUBJECTS</h3>
+            <div class="courses-grid">
+                <div class="course-card vocational" onclick="goToPage('sports-studies')">
+                    <h3><span>⚽</span> OCR Sports Studies</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Contemporary issues, performance, leadership, media. Grade 6+ PE and competitive sport participation.</p>
+                </div>
+            </div>
+
+            <!-- HOSPITALITY & TRAVEL -->
+            <h3 style="color: #5eb3f6; font-size: 1.4em; margin: 50px 0 25px 0; padding: 15px 0; border-bottom: 2px solid #8a6b7c;">🏨 HOSPITALITY & TRAVEL</h3>
+            <div class="courses-grid">
+                <div class="course-card vocational" onclick="goToPage('hospitality-catering')">
+                    <h3><span>👨‍🍳</span> WJEC Hospitality & Catering</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Food safety, menu planning, cooking. 12 hours of practical cooking assessment.</p>
+                </div>
+                <div class="course-card vocational" onclick="goToPage('travel-tourism')">
+                    <h3><span>✈️</span> BTEC Travel & Tourism</h3>
+                    <span class="small-badge">VOCATIONAL</span>
+                    <p>Tourism organizations, customer needs, sustainable tourism. Growing industry with good opportunities.</p>
+                </div>
+            </div>
+
+            <div class="features-section" style="margin-top: 80px;">
+                <h2>✨ Why This Guide?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Real Information</h3>
+                        <p>No fake testimonials. Just actual facts about Q3's courses, assessment methods, and requirements.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Easy Language</h3>
+                        <p>Explained for everyone - students AND international parents. Simple, clear, jargon-free.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <h3>Full Information</h3>
+                        <p>Click to open full course pages. Detailed view with assessment, careers, entry requirements.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💡</div>
+                        <h3>Decision Support</h3>
+                        <p>Not just information - guidance to help YOU make the right choices for your future.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✅</div>
+                        <h3>Complete Info</h3>
+                        <p>Every subject covered. Assessment breakdown, career connections, entry requirements included.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Always Updated</h3>
+                        <p>This guide stays current with Q3's offerings, grading systems, and requirements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRADING SYSTEM PAGE -->
+        <div class="page" id="gradingSystemPage">
+            <div class="course-page-header default">
+                <span class="subject-icon-large">📊</span>
+                <h1>Understanding GCSE Grades</h1>
+                <span class="course-badge">How the marking system works</span>
+            </div>
+
+            <div class="course-section default" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section default">
+                <h2>The 9-1 GCSE Grading System</h2>
+                <p class="content-text">In the UK, GCSEs use grades from 9 (highest) down to 1 (lowest). This is different from older A*-G system or international systems like IB. Here's what each grade means:</p>
+                <div class="assessment-box">
+                    <strong>Grade 9:</strong> Top of the range - excellent achievement<br>
+                    <strong>Grade 8:</strong> Very strong - above average<br>
+                    <strong>Grade 7:</strong> Strong - good achievement<br>
+                    <strong>Grade 6:</strong> Secure pass - solid understanding<br>
+                    <strong>Grade 5:</strong> Standard pass - acceptable<br>
+                    <strong>Grades 4-1:</strong> Below standard pass
+                </div>
+            </div>
+
+            <div class="course-section default">
+                <h2>GCSE vs Vocational Qualifications</h2>
+                <p class="content-text"><strong>GCSEs (General Certificates of Secondary Education):</strong> Traditional academic qualifications tested mainly by final exams. Assessment is usually 100% external exams.</p>
+                <p class="content-text"><strong>Vocational Qualifications (BTECs, Cambridge Nationals):</strong> Work-related qualifications more practical and hands-on. Assessment is usually 50-70% coursework (projects you do in lessons) and 30-50% final exam.</p>
+                <p class="content-text"><strong>Which is better?</strong> Both are equally recognized. GCSEs suit students who are good at exam revision. Vocational qualifications suit students who learn better by doing practical work.</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>Vocational Grade Equivalence</h2>
+                <p class="content-text">Vocational qualifications use different grade names but have the same value as GCSE grades:</p>
+                <div class="assessment-box">
+                    <strong>Distinction*:</strong> = GCSE 8-9 (Top achievement)<br>
+                    <strong>Distinction:</strong> = GCSE 7 (Strong)<br>
+                    <strong>Merit:</strong> = GCSE 4-6 (Pass to good)<br>
+                    <strong>Pass:</strong> = GCSE 3-4 (Pass)
+                </div>
+            </div>
+
+            <div class="course-section default">
+                <h2>For International Parents</h2>
+                <p class="content-text">If you're from another country: GCSEs are the UK's standard qualification at age 16. The 9-1 system is roughly equivalent to: Grade 9 = top IB/European grades, Grade 6-7 = solid pass, Grade 4-5 = acceptable. Universities and employers worldwide recognize GCSEs.</p>
+            </div>
+
+            <div class="course-footer default">
+                <button onclick="goHome()">← Back to Home</button>
+            </div>
+        </div>
+
+        <!-- PATHWAYS OVERVIEW PAGE -->
+        <div class="page" id="pathwaysOverviewPage">
+            <div class="course-page-header default">
+                <span class="subject-icon-large">🛤️</span>
+                <h1>Understanding Your Pathways</h1>
+                <span class="course-badge">Three different routes through KS4</span>
+            </div>
+
+            <div class="course-section default" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section default">
+                <h2>What is a Pathway?</h2>
+                <p class="content-text">Your "pathway" is the combination of subjects you'll study in Years 10 and 11. Q3 Academy offers 3 different pathways to suit different students. Most students follow Pathway 1 or 2. Some students with additional needs follow Pathway 3.</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>Pathway 1: Standard Pathway (Most Students)</h2>
+                <p class="content-text"><strong>What you study:</strong></p>
+                <ul class="content-list">
+                    <li><strong>Compulsory:</strong> English Language & Literature</li>
+                    <li><strong>Compulsory:</strong> Mathematics</li>
+                    <li><strong>Compulsory:</strong> Science (Combined = 2 GCSEs, or Separate = 3 GCSEs if Grade 7+ in Maths & Science)</li>
+                    <li><strong>Compulsory:</strong> Geography OR History (choose one)</li>
+                    <li><strong>Compulsory:</strong> French OR Spanish (if selected by MFL team)</li>
+                    <li><strong>Your choice:</strong> 2 option subjects from 15+ courses</li>
+                </ul>
+                <p class="content-text"><strong>Total:</strong> You study 8-9 subjects (most get 9 GCSEs)</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>Pathway 2: Without Language</h2>
+                <p class="content-text"><strong>Who follows this?</strong> Students not selected by the MFL team for French/Spanish, OR international students not ready for a language GCSE.</p>
+                <p class="content-text"><strong>What you study:</strong> Everything from Pathway 1 EXCEPT French/Spanish. Instead, you get:</p>
+                <ul class="content-list">
+                    <li>An extra vocational qualification (practical course like Music Technology, Hospitality, Sports, etc.)</li>
+                </ul>
+                <p class="content-text"><strong>Total:</strong> You study 7 academic subjects + 1 vocational = 8 qualifications</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>Pathway 3: ACE (Additional Considerations & Exam Support)</h2>
+                <p class="content-text"><strong>Who follows this?</strong> Students with additional needs, SEND support, or who need a tailored pathway.</p>
+                <p class="content-text"><strong>What you study:</strong> A personalized combination chosen with you and your family. May include:</p>
+                <ul class="content-list">
+                    <li>Entry Level qualifications (easier than GCSE)</li>
+                    <li>Life skills vocational courses</li>
+                    <li>Mix of GCSE and vocational subjects</li>
+                </ul>
+                <p class="content-text"><strong>Work with:</strong> The ACE team creates a custom pathway to suit your abilities and goals.</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>Key Rules for All Pathways</h2>
+                <ul class="content-list">
+                    <li><strong>You must choose 3 preferences:</strong> 1st choice, 2nd choice, and a reserve choice (in case 1st or 2nd is full)</li>
+                    <li><strong>Some courses have entry requirements:</strong> Like Computer Science needs Grade 7+ Maths, Separate Science needs Grade 7+ Science & Maths</li>
+                    <li><strong>Teachers have final say:</strong> While you choose, subject leaders assess which pathway is best for you</li>
+                    <li><strong>You can't always get both choices:</strong> Popular courses might be full, which is why your reserve choice is important</li>
+                </ul>
+            </div>
+
+            <div class="course-footer default">
+                <button onclick="goHome()">← Back to Home</button>
+            </div>
+        </div>
+
+        <!-- FAQs PAGE -->
+        <div class="page" id="faqsPage">
+            <div class="course-page-header default">
+                <span class="subject-icon-large">❓</span>
+                <h1>Frequently Asked Questions</h1>
+                <span class="course-badge">Answers to common concerns</span>
+            </div>
+
+            <div class="course-section default" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section default">
+                <h2>Do I HAVE to study French or Spanish?</h2>
+                <p class="content-text"><strong>Answer:</strong> Most students, yes. It's compulsory at Q3 unless you're an ACE student. HOWEVER, not all students are selected by the MFL team. They look at your Year 9 performance in languages and decide in Cycle 4 (spring term) who is ready for GCSE language. If you're not selected, you don't have to worry - you get to choose an extra vocational course instead.</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>Can I do Separate Science without Grade 7 in Science and Maths?</h2>
+                <p class="content-text"><strong>Answer:</strong> No. Separate Science is only for students predicted Grade 7 or above in BOTH Science AND Maths. This is because it's very demanding - you study 3 full GCSEs instead of 2. Combined Science is fine for most careers. Combined Science with a Grade 9 is better than Separate Science with a Grade 4. Talk to your Science teacher if you're unsure.</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>I want to do Computer Science but I don't have Grade 7 in Maths</h2>
+                <p class="content-text"><strong>Answer:</strong> Computer Science has only 30 places and requires Grade 7+ Maths. If you're below that, try Creative iMedia instead - it's also tech-focused but more design-based, has more capacity, and no grade requirement. Both lead to tech careers.</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>Will I do Higher or Foundation tier in Maths/Science?</h2>
+                <p class="content-text"><strong>Answer:</strong> Teachers decide this throughout Year 10 and 11, with final decision in February of Year 11. You can move between tiers if needed. Foundation tier grades go from 1-5 (easier). Higher tier grades go from 3-9 (harder but higher grades possible). Your teacher puts you on the tier that will get you the best grade.</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>What if I don't get my top choice subject?</h2>
+                <p class="content-text"><strong>Answer:</strong> Popular courses sometimes fill up. That's why you pick a reserve choice on your form - this becomes your 3rd preference if your top 2 are full. You'll be offered an alternative that suits your abilities and interests. You won't be left without good options - teachers make sure everyone gets courses they're interested in.</p>
+            </div>
+
+            <div class="course-section default">
+                <h2>Can I change my mind after I submit my form?</h2>
+                <p class="content-text"><strong>Answer:</strong> Until the deadline (usually end of March), you can ask to change your form. After the deadline, changes are difficult because the timetable starts being built. If something changes dramatically (health, family situation, you realize you hate a subject), speak to the Pathways coordinator urgently.</p>
+            </div>
+
+            <div class="course-footer default">
+                <button onclick="goHome()">← Back to Home</button>
+            </div>
+        </div>
+
+        <!-- TIMELINE PAGE -->
+        <div class="page" id="timelinePage">
+            <div class="course-page-header default">
+                <span class="subject-icon-large">📅</span>
+                <h1>Pathways Timeline 2026</h1>
+                <span class="course-badge">Key dates for choosing your KS4 courses</span>
+            </div>
+
+            <div class="course-section default" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section default">
+                <h2>Important Dates - Mark Your Calendar!</h2>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Tuesday 3rd March</div>
+                <div class="timeline-content">
+                    <strong>Pathways Assembly</strong><br>
+                    All Year 9 students attend an assembly in school. Introduction to what KS4 (Years 10-11) is all about and what pathways are available.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Thursday 12th March</div>
+                <div class="timeline-content">
+                    <strong>Pathways Evening Event</strong><br>
+                    Time: 16:00-18:00 (4pm-6pm)<br>
+                    For: All Year 9 students, parents, and carers<br>
+                    What: Meet subject teachers, ask questions, learn about all courses. VERY IMPORTANT EVENT - come with questions!
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Monday 16th March</div>
+                <div class="timeline-content">
+                    <strong>Forms Distributed</strong><br>
+                    You receive your Pathways Preference Form. This is where you list your 3 subject choices (1st, 2nd, and reserve).
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Friday 27th March</div>
+                <div class="timeline-content">
+                    <strong>DEADLINE - Forms Must Be Returned</strong><br>
+                    Your completed form must be handed in by this date. Late forms may not be processed. Don't miss this!
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Week Beginning 4th May</div>
+                <div class="timeline-content">
+                    <strong>Conversations with Students</strong><br>
+                    If you chose subjects that won't work for you (e.g., didn't meet grade requirement, course full, or teacher recommendation), school will discuss alternatives with you.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">May Half Term</div>
+                <div class="timeline-content">
+                    <strong>Final Confirmation</strong><br>
+                    You receive your final pathway confirmation - which subjects you're definitely doing in Year 10. (Note: This date may be later depending on system changes.)
+                </div>
+            </div>
+
+            <div class="course-section default">
+                <h2>What Happens After?</h2>
+                <ul class="content-list">
+                    <li><strong>June 2026:</strong> Timetables built based on all students' choices</li>
+                    <li><strong>Summer 2026:</strong> Get your timetable showing which lessons you have</li>
+                    <li><strong>September 2026:</strong> Start Year 10 - your GCSE journey begins!</li>
+                </ul>
+            </div>
+
+            <div class="course-section default">
+                <h2>Why These Dates Matter</h2>
+                <p class="content-text">The school has to build a timetable for 400+ students with hundreds of subject combinations. It takes time to make sure everyone gets the right mix. Building a timetable after the deadline becomes very difficult, so the March deadline is firm.</p>
+            </div>
+
+            <div class="course-footer default">
+                <button onclick="goHome()">← Back to Home</button>
+            </div>
+        </div>
+
+        <!-- INDIVIDUAL COURSE PAGES -->
+
+        <!-- English Language & Literature -->
+        <div class="page" id="english-languagePage">
+            <div class="course-page-header core">
+                <span class="subject-icon-large">📖</span>
+                <h1>English Language & Literature</h1>
+                <span class="course-badge">CORE - All Students</span>
+            </div>
+
+            <div class="course-section core" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section core">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text"><strong>English Language Component:</strong> You'll study reading and understanding both fiction and non-fiction texts. You'll learn to analyze how writers use language and structure to create effects. You'll practice creative writing and persuasive writing. You'll also do speaking and listening activities.</p>
+                <p class="content-text"><strong>English Literature Component:</strong> You'll study specific texts set by the exam board:</p>
+                <ul class="content-list">
+                    <li><strong>A Christmas Carol</strong> by Charles Dickens (19th century novel)</li>
+                    <li><strong>Macbeth</strong> by William Shakespeare (play)</li>
+                    <li><strong>An Inspector Calls</strong> by J.B. Priestley (20th century play)</li>
+                    <li><strong>Poetry collections</strong> - you'll study a selection of poems and compare them</li>
+                </ul>
+            </div>
+
+            <div class="course-section core">
+                <h2>🎯 How You're Assessed</h2>
+                <p class="content-text"><strong>Exam Board:</strong> AQA (the organization that runs these exams)</p>
+                <div class="assessment-box">
+                    <strong>ENGLISH LANGUAGE - two final exams, worth 50% of your Language GCSE each:</strong><br>
+                    • Paper 1: Reading & Writing (1 hour 45 minutes) - worth 50%<br>
+                    • Paper 2: Reading & Writing (1 hour 45 minutes) - worth 50%<br>
+                    Total: 2 exams, no coursework
+                </div>
+                <div class="assessment-box">
+                    <strong>ENGLISH LITERATURE - two final exams:</strong><br>
+                    • Paper 1: Reading and Understanding texts (1 hour 45 minutes) - worth 40%<br>
+                    • Paper 2: Extended essay exam (2 hours 15 minutes) - worth 60%<br>
+                    Total: 2 exams, no coursework
+                </div>
+                <p class="content-text"><strong>Simple explanation:</strong> You do 4 written exams total. No coursework (essays you do during the year). Everything is tested in final exams. There's also a speaking assessment during the course.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>💡 Why It Matters</h2>
+                <p class="content-text">English is compulsory for everyone - and for good reason. The skills you learn affect EVERY other subject. Reading, writing, and speaking well are essential for your entire life. Universities and employers care more about English grades than almost any other subject. It literally opens more doors than any other qualification you can get.</p>
+                <p class="content-text">Beyond careers, English teaches you to think critically, understand different perspectives, and express yourself clearly. These skills matter forever.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>🎓 Career Connections</h2>
+                <p class="content-text">Strong English skills are needed for: Law, Journalism, Teaching, Marketing, Public Relations, Social Work, Nursing, Engineering (yes - you need to communicate!), Business, and basically any career where you need to write reports or communicate with people.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mr. Singh</strong> – <span data-teacher="singh">Contact through Teams</span></p>
+                <p class="content-text">Ask him if you have questions about literature, writing techniques, or what to expect from the exams.</p>
+            </div>
+
+            <div class="course-footer core">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Mathematics -->
+        <div class="page" id="mathematicsPage">
+            <div class="course-page-header core">
+                <span class="subject-icon-large">🔢</span>
+                <h1>Mathematics</h1>
+                <span class="course-badge">CORE - All Students</span>
+            </div>
+
+            <div class="course-section core" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section core">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Maths is divided into four main areas. Everyone studies these regardless of tier:</p>
+                <ul class="content-list">
+                    <li><strong>Number:</strong> How numbers work, fractions, decimals, percentages, and measurements</li>
+                    <li><strong>Algebra:</strong> Using symbols and letters to solve problems, understanding graphs, working with sequences and patterns</li>
+                    <li><strong>Geometry:</strong> Shapes, angles, area, perimeter, properties of shapes, and vectors</li>
+                    <li><strong>Probability & Statistics:</strong> Understanding data, probability, averages, and charts</li>
+                </ul>
+                <p class="content-text"><strong>Important:</strong> You'll study similar topics whether you're in Foundation or Higher tier - the difference is the difficulty level and what grades you can achieve.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>🎯 How You're Assessed</h2>
+                <p class="content-text"><strong>Exam Board:</strong> Pearson Edexcel</p>
+                <p class="content-text"><strong>Two Tiers Available (Teachers Decide):</strong></p>
+                <div class="assessment-box">
+                    <strong>Foundation Tier:</strong> Grades 1-5 available (easier questions, no access to grade 6-9)<br>
+                    <strong>Higher Tier:</strong> Grades 3-9 available (harder questions, can get any grade)
+                </div>
+                <p class="content-text"><strong>Your tier:</strong> Teachers decide which tier is best for you based on your Year 9-10 work. You might move tiers during Year 11 if needed. Decisions are made throughout the course - your teacher picks the tier that will get you the best grade.</p>
+                <div class="assessment-box">
+                    <strong>Three papers (calculator and non-calculator):</strong><br>
+                    • Paper 1: No calculator allowed (1 hour 30 minutes) - 33.33% of grade<br>
+                    • Paper 2: Calculator allowed (1 hour 30 minutes) - 33.33% of grade<br>
+                    • Paper 3: Calculator allowed (1 hour 30 minutes) - 33.33% of grade<br>
+                    Total: 3 exams, no coursework
+                </div>
+            </div>
+
+            <div class="course-section core">
+                <h2>💡 Why It Matters</h2>
+                <p class="content-text">Maths is compulsory because it's essential for your future. You learn problem-solving and analytical skills that apply to everything. Employers across ALL industries (business, healthcare, construction, science, sports, etc.) value Maths qualifications highly. A good Maths grade gives you options in almost any career.</p>
+                <p class="content-text">Beyond careers, Maths teaches you to think logically and solve real-world problems - skills you'll use your whole life.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>🎓 Career Connections</h2>
+                <p class="content-text">Strong Maths skills open doors to: Engineering, Accountancy, Banking, IT/Computing, Science, Medicine, Architecture, Finance, Teaching, and many more. Even careers that don't sound "mathy" (like psychology, sociology, nursing) all use statistics and analysis.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mr Parpagga</strong> – <span data-teacher="parpagga">Contact through Teams</span></p>
+                <p class="content-text">Ask about which tier might be right for you, or if you want extra help.</p>
+            </div>
+
+            <div class="course-footer core">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Science -->
+        <div class="page" id="sciencePage">
+            <div class="course-page-header core">
+                <span class="subject-icon-large">🧪</span>
+                <h1>Science (Choose One)</h1>
+                <span class="course-badge">CORE - All Students</span>
+            </div>
+
+            <div class="course-section core" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section core">
+                <h2>📝 Option 1: Combined Science (Trilogy)</h2>
+                <p class="content-text">Most students choose this option. You study three sciences but combined into 6 exam papers.</p>
+                <p class="content-text"><strong>Biology Topics:</strong> Cells, respiration (how your body uses energy), photosynthesis (how plants make energy), genetics (inheritance), evolution, and ecology (ecosystems)</p>
+                <p class="content-text"><strong>Chemistry Topics:</strong> Atoms and the periodic table, bonding and structure, chemical reactions, energy, and how we use chemical resources</p>
+                <p class="content-text"><strong>Physics Topics:</strong> Energy and electricity, forces and motion, waves, magnetism, and heat</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>📝 Option 2: Separate Science (Triple)</h2>
+                <div class="warning-box">
+                    <strong>⚠️ ENTRY REQUIREMENT:</strong> You must be predicted Grade 7+ in BOTH Science AND Maths. Only students who meet this requirement can choose this.
+                </div>
+                <p class="content-text">You study Biology, Chemistry, and Physics as three separate GCSEs instead of one combined science worth 2 GCSEs. This means you study MORE content in greater detail than Combined Science. For example, Physics includes a topic on "Space" that Combined Science doesn't cover.</p>
+                <p class="content-text"><strong>Only choose this if:</strong> You're certain you want to study science at A-Level and potentially go to university for a science degree. It's very demanding!</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>🎯 How You're Assessed</h2>
+                <p class="content-text"><strong>Exam Board:</strong> AQA</p>
+                <div class="assessment-box">
+                    <strong>COMBINED SCIENCE:</strong><br>
+                    • 6 exam papers (each 1 hour 15 minutes)<br>
+                    • You get 2 GCSE grades (1 for science overall)<br>
+                    • 100% exams, no coursework
+                </div>
+                <div class="assessment-box">
+                    <strong>SEPARATE SCIENCE:</strong><br>
+                    • 6 exam papers (each 1 hour 45 minutes)<br>
+                    • You get 3 separate GCSE grades: Biology, Chemistry, Physics<br>
+                    • 100% exams, no coursework
+                </div>
+                <p class="content-text"><strong>Simple explanation:</strong> Either way, there are 6 exams spread across the two years. No coursework - just exams. The difference is that Separate Science is longer papers and covers more content.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>💡 Which Should You Choose?</h2>
+                <p class="content-text"><strong>Combined Science is fine for most students and most careers.</strong> You get 2 GCSEs, which is enough for nearly all careers. Separate Science is only if you're definitely going to study science at A-Level and potentially at university.</p>
+                <p class="content-text">Important: A Grade 9 in Combined Science is better than a Grade 4 in Separate Science. Don't choose Separate Science just because it sounds harder - choose it only if you genuinely plan to pursue science further.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>🎓 Career Connections</h2>
+                <p class="content-text">Science skills are needed for: Medicine, Nursing, Engineering, Biology/Chemistry/Physics teaching, Environmental science, Psychology, Pharmacy, Dentistry, Agriculture, Sports science, and many more. Science is one of the most versatile qualifications you can get.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mrs. Koasha</strong> – <span data-teacher="koasha">Contact through Teams</span></p>
+                <p class="content-text">Ask if Separate Science might be right for you, or if you have questions about the course content.</p>
+            </div>
+
+            <div class="course-footer core">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- History or Geography -->
+        <div class="page" id="history-geographyPage">
+            <div class="course-page-header core">
+                <span class="subject-icon-large">🌍</span>
+                <h1>History OR Geography</h1>
+                <span class="course-badge">CORE - Choose One</span>
+            </div>
+
+            <div class="course-section core" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section core">
+                <h2>📝 GEOGRAPHY: What You'll Study</h2>
+                <p class="content-text">Geography is about understanding the world - both the physical environment and people.</p>
+                <ul class="content-list">
+                    <li><strong>Physical Environment:</strong> Natural hazards like earthquakes and flooding, ecosystems and how they work, and physical landscapes in the UK</li>
+                    <li><strong>Human Environment:</strong> How cities develop and how urbanization affects people, global economics and trade, and resource management</li>
+                    <li><strong>Geography Applications:</strong> You'll evaluate real-world issues, do fieldwork (going out and collecting data), and develop geographical skills</li>
+                </ul>
+            </div>
+
+            <div class="course-section core">
+                <h2>📝 HISTORY: What You'll Study</h2>
+                <p class="content-text">History is about understanding the past and how it connects to today.</p>
+                <ul class="content-list">
+                    <li><strong>Thematic Study:</strong> Choose between Medicine in Britain (from 1250 to today) OR Warfare in Britain (from 1250 to today) - see how these areas changed over 700+ years</li>
+                    <li><strong>The Cold War (1941-91):</strong> The tension between superpowers (USA and Soviet Union) after World War 2</li>
+                    <li><strong>Medieval England (1060-1088):</strong> Anglo-Saxon and Norman England - understanding medieval society</li>
+                    <li><strong>Weimar and Nazi Germany (1918-39):</strong> How Germany changed after WW1 and the rise of Hitler</li>
+                </ul>
+            </div>
+
+            <div class="course-section core">
+                <h2>🎯 Assessment</h2>
+                <p class="content-text"><strong>Exam Board:</strong> AQA (Geography), Edexcel (History)</p>
+                <div class="assessment-box">
+                    <strong>GEOGRAPHY:</strong><br>
+                    • 3 exam papers (each 1 hour 30 minutes)<br>
+                    • Each worth 35%, 35%, and 30%<br>
+                    • 100% exams, no coursework
+                </div>
+                <div class="assessment-box">
+                    <strong>HISTORY:</strong><br>
+                    • 3 exam papers of different lengths<br>
+                    • Paper 1: 1 hour 15 mins (30%)<br>
+                    • Paper 2: 1 hour 45 mins (40%)<br>
+                    • Paper 3: 1 hour 20 mins (30%)<br>
+                    • Heavy emphasis on essay writing and analysis<br>
+                    • 100% exams, no coursework
+                </div>
+            </div>
+
+            <div class="course-section core">
+                <h2>💡 Which Should You Choose?</h2>
+                <p class="content-text"><strong>Geography:</strong> Choose this if you like understanding how the world works, analyzing data, and solving real-world problems. Geography involves fieldwork (going out and doing investigations) and practical skills.</p>
+                <p class="content-text"><strong>History:</strong> Choose this if you love reading stories about people and events, understanding change over time, and developing essay-writing skills. History emphasizes critical thinking and analysis.</p>
+                <p class="content-text"><strong>You must choose one</strong> - it's compulsory. But if you want to study BOTH, you can take one as your compulsory choice and the other as an option subject!</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>🎓 Career Connections</h2>
+                <p class="content-text"><strong>Geography leads to:</strong> Urban planning, environmental management, international development, climate science, teaching, tourism, and many business careers (companies need people who understand global markets).</p>
+                <p class="content-text"><strong>History leads to:</strong> Law, journalism, politics, public administration, teaching, museums and heritage, social work, and research. Historians are valued in many fields for their analytical skills.</p>
+            </div>
+
+            <div class="course-section core">
+                <h2>👥 Contact Your Teachers</h2>
+                <p class="content-text"><strong>Geography:</strong> Miss Gilhooley – <span data-teacher="gilhooley">Contact through Teams</span><br><strong>History:</strong> Mr. Dale – <span data-teacher="dale">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer core">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- French -->
+        <div class="page" id="frenchPage">
+            <div class="course-page-header optional">
+                <span class="subject-icon-large">🇫🇷</span>
+                <h1>GCSE French</h1>
+                <span class="course-badge">OPTIONAL - GCSE</span>
+            </div>
+
+            <div class="course-section optional" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Exam Board:</strong> AQA – the organization that runs this exam</p>
+                <p class="content-text" style="margin-top: 10px;">French GCSE covers practical language skills. You'll develop ability to listen, speak, read, and write in French. Not just exam preparation – genuine communication skills you can use in real life.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">French GCSE covers three main themes across listening, speaking, reading, and writing.</p>
+                <ul class="content-list">
+                    <li><strong>Theme 1 - People & Lifestyle:</strong> Identity and relationships with others, healthy living and lifestyle choices, education and work</li>
+                    <li><strong>Theme 2 - Popular Culture:</strong> Free-time activities, customs and celebrations, celebrity culture and entertainment</li>
+                    <li><strong>Theme 3 - Communication & World:</strong> Travel and tourism, media and technology, the environment and where people live</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>⚠️ Selection - Not Everyone Will Do This</h2>
+                <div class="warning-box">
+                    <strong>The MFL team decides in Cycle 4 (spring of Year 9)</strong> who is ready for language GCSE. They assess your progress and ability. If you're not selected, you don't study French GCSE - instead you do an extra vocational qualification. This is fair - the teachers know who will succeed at GCSE level.
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Four Skills (25% each):</strong><br>
+                    • Listening (35-45 minutes depending on tier)<br>
+                    • Speaking (7-12 minutes - you actually speak French with an examiner!)<br>
+                    • Reading (45 mins to 1 hour)<br>
+                    • Writing (1 hour 10-15 minutes)<br>
+                    <br><em>All exams – no coursework</em>
+                </div>
+                <p class="content-text"><strong>Two tiers:</strong> Foundation (grades 1-5) or Higher (grades 3-9)</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Why Learn French?</h2>
+                <p class="content-text">In our multicultural world, speaking another language is genuinely a superpower. Learning a language is challenging, yes - but it's one of the most rewarding things you can achieve. Research shows people who speak languages statistically earn more money. Employers everywhere value language skills. With French, you're not limited to jobs in your area - companies across the world need French speakers.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎓 Career Connections</h2>
+                <p class="content-text">French speakers are needed in: International business and trade, diplomacy and government, translation and interpretation, teaching, tourism and hospitality, media and broadcasting, and any multinational company. France, Belgium, Switzerland, Canada, and many African countries use French - that's a lot of job opportunities.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mrs. Markwick</strong> – <span data-teacher="markwick">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer optional">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Spanish -->
+        <div class="page" id="spanishPage">
+            <div class="course-page-header optional">
+                <span class="subject-icon-large">🇪🇸</span>
+                <h1>GCSE Spanish</h1>
+                <span class="course-badge">OPTIONAL - GCSE</span>
+            </div>
+
+            <div class="course-section optional" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Exam Board:</strong> AQA – the organization that runs this exam</p>
+                <p class="content-text" style="margin-top: 10px;">Spanish GCSE is identical in structure to French. You'll develop practical communication skills and learn about Spanish-speaking cultures.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Spanish GCSE covers three main themes across listening, speaking, reading, and writing.</p>
+                <ul class="content-list">
+                    <li><strong>Theme 1 - People & Lifestyle:</strong> Identity and relationships with others, healthy living and lifestyle choices, education and work</li>
+                    <li><strong>Theme 2 - Popular Culture:</strong> Free-time activities, customs and celebrations, celebrity culture and entertainment</li>
+                    <li><strong>Theme 3 - Communication & World:</strong> Travel and tourism, media and technology, the environment and where people live</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📚 How You're Assessed</h2>
+                <div class="assessment-box">
+                    <strong>Four Skills (25% each):</strong><br>
+                    • <strong>Listening Exam:</strong> 35 minutes – you hear Spanish and answer questions<br>
+                    • <strong>Speaking Exam:</strong> 7-9 minutes per student – you talk with a teacher about set topics plus discuss something you choose<br>
+                    • <strong>Reading Exam:</strong> 1 hour – read Spanish texts and answer questions to show understanding<br>
+                    • <strong>Writing Exam:</strong> 1 hour 15 minutes – write in Spanish (emails, essays, messages)<br>
+                    <br><em>All exams - No coursework</em>
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>⚠️ Selection Process</h2>
+                <div class="warning-box">
+                    Spanish is chosen by the MFL (Modern Foreign Languages) team in Cycle 4, based on your Year 9 language performance. Talk to your language teachers if you're interested in studying Spanish instead of, or alongside, French.
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Tier Options</h2>
+                <ul class="content-list">
+                    <li><strong>Foundation Tier:</strong> Grades 1-5 (passed with grades 4-5). Best if you're building confidence in languages.</li>
+                    <li><strong>Higher Tier:</strong> Grades 3-9 (can get full range). For students progressing well in languages. Teachers help you decide in Year 10.</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Why Spanish Matters</h2>
+                <p class="content-text">Over 500 million people speak Spanish worldwide – second only to Mandarin. Spain is a major European economy, and Spanish is crucial across Latin America. Learning Spanish opens doors to understand different cultures, increases job opportunities globally, and builds your communication skills.</p>
+                <p class="content-text" style="margin-top: 10px;"><strong>For International Families:</strong> Spanish is an official language in 21 countries. Having GCSE Spanish recognised globally, especially if your family has Spanish connections.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Hospitality & Tourism:</strong> Hotels, resorts, and travel companies across Spain and Latin America</li>
+                    <li><strong>International Business:</strong> Multinational companies needing Spanish-speaking staff</li>
+                    <li><strong>Translation & Interpretation:</strong> Healthcare, legal, media sectors</li>
+                    <li><strong>Education:</strong> Teaching Spanish or teaching English abroad in Spanish-speaking countries</li>
+                    <li><strong>Government & Diplomacy:</strong> Foreign Office, EU roles, international organizations</li>
+                    <li><strong>Media & Publishing:</strong> News, entertainment, content creation for Spanish markets</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mrs. Markwick</strong> – <span data-teacher="markwick">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer optional">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Art & Design -->
+        <div class="page" id="art-designPage">
+            <div class="course-page-header optional">
+                <span class="subject-icon-large">🎨</span>
+                <h1>GCSE Art & Design</h1>
+                <span class="course-badge">OPTIONAL - GCSE</span>
+            </div>
+
+            <div class="course-section optional" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Exam Board:</strong> Edexcel – the organization that runs this exam</p>
+                <p class="content-text" style="margin-top: 10px;">Art & Design is a practical GCSE where you explore your creativity across different mediums. You choose your specialism in the first few weeks.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Choose Your Specialism (Pick One)</h2>
+                <ul class="content-list">
+                    <li><strong>Fine Art:</strong> Explore drawing, painting, and mixed media. Develop observational skills and experiment with different materials and techniques.</li>
+                    <li><strong>Photography:</strong> Develop photographic skills using both digital and analog techniques. Learn composition, lighting, and image manipulation.</li>
+                    <li><strong>Textiles:</strong> Create textile art through dyeing, printing, embroidery, and sewing. Explore fabric as a medium for artistic expression. (Runs if there's enough interest)</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 What You'll Create</h2>
+                <p class="content-text">Your GCSE Art consists of a portfolio (coursework) created over two years, plus an externally set exam project.</p>
+                <ul class="content-list">
+                    <li><strong>Portfolio (60% of grade):</strong> A collection of your work showing experiments, developmental pieces, and finished pieces. Shows your journey and creative thinking.</li>
+                    <li><strong>Externally Set Assignment (40% of grade):</strong> In the spring of Year 11, you get a new brief set by the exam board. You have 10 hours of supervised time to respond to this brief with a finished piece.</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Two Components:</strong><br>
+                    • <strong>Portfolio Project (60%):</strong> Your work over two years showing experiments, skills, and creativity<br>
+                    • <strong>Externally Set Assignment (40%):</strong> 10 hours of supervised time to respond to a new brief in an exam format<br>
+                    <br><em>Heavily practical - focused on your actual artwork</em>
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Technical Skills:</strong> How to use tools and materials effectively for your specialism</li>
+                    <li><strong>Creative Thinking:</strong> Generate ideas, develop concepts, and solve visual problems</li>
+                    <li><strong>Critical Evaluation:</strong> Analyze your own work and that of professional artists</li>
+                    <li><strong>Art History Context:</strong> Understand artistic movements and how artists influence each other</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Perfect If...</h2>
+                <p class="content-text">You enjoy creating visual work and want to explore your creativity. You love expressing ideas through making things. You're interested in a creative career in design, illustration, photography, animation, or fine art.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Graphic Design:</strong> Creating visuals for brands, websites, advertising</li>
+                    <li><strong>Photography:</strong> Professional photography, photojournalism, commercial work</li>
+                    <li><strong>Fashion & Textiles:</strong> Fashion design, textile design, costume design</li>
+                    <li><strong>Animation & Film:</strong> Character design, concept art, visual effects</li>
+                    <li><strong>Fine Art:</strong> Fine artist, gallery curator, art historian</li>
+                    <li><strong>Product & Industrial Design:</strong> Creating physical products from furniture to technology</li>
+                    <li><strong>Web & UX Design:</strong> Designing digital experiences</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mrs. Barlow</strong> – <span data-teacher="barlow">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer optional">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Music -->
+        <div class="page" id="musicPage">
+            <div class="course-page-header optional">
+                <span class="subject-icon-large">🎵</span>
+                <h1>GCSE Music</h1>
+                <span class="course-badge">OPTIONAL - GCSE</span>
+            </div>
+
+            <div class="course-section optional" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Exam Board:</strong> Pearson Edexcel – the organization that runs this exam</p>
+                <p class="content-text" style="margin-top: 10px;">GCSE Music is for musicians of all abilities. You don't need to be advanced – you just need enthusiasm and willingness to learn. Mix of practical music-making and study of music styles.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">GCSE Music has three main components:</p>
+                <ul class="content-list">
+                    <li><strong>Performing (30%):</strong> Play/sing pieces on an instrument of your choice (voice counts as an instrument). You'll perform both solo pieces and ensemble pieces with other students. Performances are recorded for assessment.</li>
+                    <li><strong>Composing (30%):</strong> Create 2 original music pieces. One can be anything you choose. One must respond to a set brief given by the exam board. Shows your creativity and understanding of music theory.</li>
+                    <li><strong>Appraising (40%):</strong> Study and analyze music. You'll learn about 4 musical areas: Musical Forms (how pieces are structured), Ensemble Music (different combinations of instruments), Film Music (how music works in movies), and Popular Music (contemporary styles).</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Three Components:</strong><br>
+                    • <strong>Performing (30%):</strong> 4-6 minutes of recorded performances (solo + ensemble)<br>
+                    • <strong>Composing (30%):</strong> Portfolio of 2 original pieces totaling at least 4 minutes<br>
+                    • <strong>Appraising (40%):</strong> 1 hour 15 minutes listening and analysis exam<br>
+                    <br><em>Mix of practical music-making (70%) and written exam (40%)</em>
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Performance Skills:</strong> Technical ability on your instrument, stage presence, rhythm and timing</li>
+                    <li><strong>Composition Skills:</strong> How to develop musical ideas, use harmony and melody, arrange music</li>
+                    <li><strong>Music Listening Skills:</strong> Recognizing instruments, understanding structure, analyzing how composers create effects</li>
+                    <li><strong>Music Theory:</strong> Notation, harmony, form, rhythm patterns</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Why This Course Matters</h2>
+                <p class="content-text">Music activates all areas of your brain – auditory (hearing), motor (movement), and emotional (feeling). Research shows that music students perform better in other subjects too. Music is great for mental health, confidence, and teamwork. Universities really value GCSE Music as it shows dedication and creative thinking.</p>
+                <p class="content-text" style="margin-top: 10px;"><strong>For International Families:</strong> Music is universally recognized. A GCSE in Music demonstrates cultural understanding and artistic maturity valued worldwide.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Professional Musician:</strong> Concert performer, orchestra player, session musician</li>
+                    <li><strong>Music Production:</strong> Studio producer, sound engineer, recording technician</li>
+                    <li><strong>Music Education:</strong> Music teacher, private tuition, school music director</li>
+                    <li><strong>Composition & Arrangement:</strong> Film composer, TV composer, jingle writer</li>
+                    <li><strong>Music Industry:</strong> Record label, artist management, music promotion</li>
+                    <li><strong>Sound Design:</strong> Video games, film, animation, virtual reality</li>
+                    <li><strong>Music Technology:</strong> DJ, live sound engineer, event production</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>⚠️ Important Note</h2>
+                <div class="warning-box">
+                    You need to be learning an instrument either at school or privately. If you're not currently learning, speak to Mrs. Morrall about starting lessons. The school has a list of local tutors if you need recommendations.
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mrs. Morrall</strong> – <span data-teacher="morrall">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer optional">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Music Technology -->
+        <div class="page" id="music-technologyPage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">🎧</span>
+                <h1>NCFE Music Technology</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> NCFE Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Music Technology is more practical than GCSE Music. You learn real music production skills using professional software. No performing requirement – all about creating music with technology.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Learn</h2>
+                <p class="content-text">Music Technology focuses on the skills used in the modern music industry:</p>
+                <ul class="content-list">
+                    <li><strong>Music Business Context:</strong> Different roles in the music industry, how the business works, copyright and licensing</li>
+                    <li><strong>DAW (Digital Audio Workstation):</strong> Learn to use professional music production software (Logic, Ableton, or similar). Create, arrange, and produce musical projects.</li>
+                    <li><strong>Composing & Arranging:</strong> Write original music in different styles and genres</li>
+                    <li><strong>Recording & Editing:</strong> Record instruments and voices, edit audio, create multi-track recordings</li>
+                    <li><strong>Mixing & Mastering:</strong> Balance levels, add effects, create a professional-sounding final product</li>
+                    <li><strong>Sound for Media:</strong> Create sound effects, music, and audio for films, games, animations, and other media</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Two Components:</strong><br>
+                    • <strong>Portfolio of Coursework (60%):</strong> A collection of music projects you create over the year, including compositions, recordings, and production work<br>
+                    • <strong>External Exam (40%):</strong> 1 hour 30 minutes exam where you complete a music production task to a set brief<br>
+                    <br><em>Vocational = mostly hands-on projects and practical work</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Music Technology vs GCSE Music</h2>
+                <ul class="content-list">
+                    <li><strong>Music Technology:</strong> More practical. Learn production skills. No performing required. Focus on technology and industry.</li>
+                    <li><strong>GCSE Music:</strong> Balanced approach. Performing, composing, and listening. More music theory. Better for classical training path.</li>
+                </ul>
+                <p class="content-text" style="margin-top: 10px;"><strong>Choose Music Technology if:</strong> You're interested in music production, DJing, gaming audio, film scoring, or working in the music industry with technology. You may not play an instrument but want to make music.</p>
+                <p class="content-text"><strong>Choose GCSE Music if:</strong> You play an instrument and want a more traditional musical education. Interested in performance and composition for their own sake.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Need</h2>
+                <ul class="content-list">
+                    <li>Enthusiasm for music and technology (not musical training required)</li>
+                    <li>Access to music production software during lessons (provided by school)</li>
+                    <li>Willingness to learn technical skills</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Music Producer:</strong> Create and develop music in a recording studio</li>
+                    <li><strong>Sound Engineer:</strong> Record, mix, and master audio for professional use</li>
+                    <li><strong>Audio Post-Production:</strong> Create sound for films, TV, and streaming content</li>
+                    <li><strong>Game Audio Designer:</strong> Create sound effects and music for video games</li>
+                    <li><strong>DJ & Live Sound:</strong> DJ at events, manage live sound systems</li>
+                    <li><strong>Music Technology Support:</strong> Support musicians and studios with technology</li>
+                    <li><strong>Podcast & Audio Production:</strong> Produce and engineer podcasts, audiobooks, and audio content</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mrs. Morrall</strong> – <span data-teacher="morrall">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Performing Arts -->
+        <div class="page" id="performing-artsPage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">🎭</span>
+                <h1>BTEC Performing Arts</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> BTEC Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Performing Arts is a practical course for dancers, actors, and theatre performers. You'll study professional performance, develop your own performance skills, and create responses to performance briefs.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Three main units:</p>
+                <ul class="content-list">
+                    <li><strong>Exploring Performing Arts (30%):</strong> Study professional performers and performances. Analyze how actors, dancers, and theatre creators work. Understand different performance styles and techniques.</li>
+                    <li><strong>Developing Performance Skills (30%):</strong> Rehearse and perform in different styles and genres (drama, dance, musical theatre, etc.). Build your own performance techniques and confidence on stage.</li>
+                    <li><strong>Responding to a Brief (40%):</strong> Work in a workshop setting to develop and perform a response to a specific performance brief given by the exam board. Similar to a real theatre or performance production process.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Three Components:</strong><br>
+                    • <strong>Exploring Performing Arts (30%):</strong> Written coursework analyzing performances<br>
+                    • <strong>Developing Skills (30%):</strong> Practical rehearsal work and recorded performances<br>
+                    • <strong>Responding to Brief (40%):</strong> Recorded performance of your response + written reflection exam questions<br>
+                    <br><em>Heavily performance-based – practical work is most important</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Performance Techniques:</strong> Acting, movement, vocal skills, character development</li>
+                    <li><strong>Collaboration:</strong> Working in an ensemble with other performers</li>
+                    <li><strong>Interpretation:</strong> Understanding scripts, briefs, and how to bring stories to life</li>
+                    <li><strong>Professionalism:</strong> How the theatre and entertainment industry works</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Who Should Take This?</h2>
+                <p class="content-text">Perfect for performers – actors, dancers, theatre enthusiasts. You love being on stage or in front of an audience. You want to develop your performance craft and explore the entertainment industry. Strong confidence in physical expression and collaboration.</p>
+                <p class="content-text" style="margin-top: 10px;"><strong>This is NOT:</strong> A lecture-based course. Very hands-on and practical. You'll be performing regularly throughout the two years.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Theatre & Performance:</strong> Actor in theatre productions, West End, touring shows</li>
+                    <li><strong>Film & Television:</strong> Acting for TV, film, streaming services</li>
+                    <li><strong>Dance:</strong> Professional dancer, dance theatre, contemporary dance companies</li>
+                    <li><strong>Musical Theatre:</strong> Performer in musical productions</li>
+                    <li><strong>Entertainment:</strong> Theme parks, cruise ships, event entertainment</li>
+                    <li><strong>Performance Coaching:</strong> Drama teacher, acting coach, theatre director</li>
+                    <li><strong>Production & Technical:</strong> Stage management, set design, lighting/sound for performance</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Miss Gibbs</strong> – <span data-teacher="gibbs">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Computer Science -->
+        <div class="page" id="computer-sciencePage">
+            <div class="course-page-header optional">
+                <span class="subject-icon-large">💻</span>
+                <h1>GCSE Computer Science</h1>
+                <span class="course-badge">OPTIONAL - GCSE (Selective Entry)</span>
+            </div>
+
+            <div class="course-section optional" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Exam Board:</strong> OCR – the organization that runs this exam</p>
+                <p class="content-text" style="margin-top: 10px;">Computer Science is about understanding how computers and the internet work, and learning to write code. It's selective entry (limited places) because it requires strong maths skills and specialist teaching.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>⚠️ Entry Requirement</h2>
+                <div class="warning-box">
+                    <strong>Must be predicted Grade 7+ in BOTH Maths AND Computing (your current ICT/IT grade).</strong> Only 30 places available due to limited specialist staff. If you don't meet the entry requirement, you can choose Creative iMedia instead – it's creative technology without the heavy programming.
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Computer Science covers how computer systems work and how to program them:</p>
+                <ul class="content-list">
+                    <li><strong>Systems Architecture:</strong> How computers are designed and structured. CPU, memory (RAM and storage), how data is stored and processed. Why some computers are faster than others.</li>
+                    <li><strong>Networks & Internet:</strong> How the internet and computer networks work. Network protocols (rules for communication), cybersecurity and data protection. How data travels across the internet.</li>
+                    <li><strong>Programming:</strong> Write real code in Python (a programming language). Understand algorithms (step-by-step instructions to solve problems). Learn good programming practice and how to debug code.</li>
+                    <li><strong>Data Representation:</strong> How computers store and use data. Binary (1s and 0s), hexadecimal, how sound and images are stored digitally. Boolean logic.</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Two Exams (No Coursework):</strong><br>
+                    • <strong>Computer Systems (50%):</strong> 1 hour 30 minutes written exam on architecture, networks, cybersecurity, data representation<br>
+                    • <strong>Computational Thinking & Programming (50%):</strong> 1 hour 30 minutes written exam on programming concepts and code writing<br>
+                    <br><em>All exams – no coursework component</em>
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Problem-Solving:</strong> How to break down complex problems into steps</li>
+                    <li><strong>Logical Thinking:</strong> Understanding how computers follow instructions</li>
+                    <li><strong>Digital Literacy:</strong> Why cybersecurity matters, how to stay safe online</li>
+                    <li><strong>Programming Skills:</strong> Write code that works. A skill that transfers to any programming language</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Why Computer Science?</h2>
+                <p class="content-text">Technology skills are in MASSIVE global demand. High salaries. Opens doors to software development, cybersecurity, game development, data science, AI, and virtually any modern industry. Coding is like a superpower for problem-solving.</p>
+                <p class="content-text" style="margin-top: 10px;"><strong>For International Students:</strong> Computer Science GCSE is recognized worldwide. Programming skills are globally valuable and cross language barriers.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Software Development:</strong> Create applications, websites, software for companies</li>
+                    <li><strong>Cybersecurity:</strong> Protect businesses from hackers and data theft</li>
+                    <li><strong>Game Development:</strong> Create video games</li>
+                    <li><strong>Data Science & AI:</strong> Analyze data, machine learning, artificial intelligence</li>
+                    <li><strong>Web Development:</strong> Build and maintain websites and web applications</li>
+                    <li><strong>IT Support & Systems:</strong> Manage computer networks and systems</li>
+                    <li><strong>Technology Research:</strong> Work on cutting-edge tech innovations</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mr. Khan</strong> – <span data-teacher="khan">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer optional">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Religious Studies -->
+        <div class="page" id="religious-studiesPage">
+            <div class="course-page-header optional">
+                <span class="subject-icon-large">⛪</span>
+                <h1>GCSE Religious Studies</h1>
+                <span class="course-badge">OPTIONAL - GCSE</span>
+            </div>
+
+            <div class="course-section optional" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Exam Board:</strong> Eduqas – the organization that runs this exam</p>
+                <p class="content-text" style="margin-top: 10px;">Religious Studies is about understanding different religions and exploring important ethical and moral questions. You'll study Christianity and Sikhism in depth, then apply what you learn to global issues.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Two main components:</p>
+                <ul class="content-list">
+                    <li><strong>Component 1 - Religious Beliefs & Values:</strong> Study Christianity and Sikhism in depth. Learn about their beliefs, practices, how followers live their faith, festivals, important leaders and texts. Understand similarities and differences between the religions.</li>
+                    <li><strong>Component 2 - Thematic Studies:</strong> Explore big ethical and social questions using religious and secular perspectives. Topics include:
+                        <ul style="margin: 10px 0 0 20px;">
+                            <li><strong>Religion & Life:</strong> Family, relationships, sexuality, purpose in life</li>
+                            <li><strong>Peace & Conflict:</strong> Causes of war, religious responses to violence, peacemaking</li>
+                            <li><strong>Crime & Punishment:</strong> Justice systems, religious views on crime, redemption, rehabilitation</li>
+                            <li><strong>Human Rights & Social Justice:</strong> Rights and responsibilities, inequality, religious activism</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Two Exams:</strong><br>
+                    • <strong>Study of Religions (50%):</strong> 1 hour 45 minutes – questions about Christianity and Sikhism beliefs, practices, teachings<br>
+                    • <strong>Thematic Studies (50%):</strong> 1 hour 45 minutes – apply religious and ethical thinking to real-world issues<br>
+                    <br><em>Two written exams only – no coursework</em>
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Critical Thinking:</strong> Evaluate different perspectives and arguments</li>
+                    <li><strong>Dialogue Skills:</strong> Discuss sensitive topics respectfully</li>
+                    <li><strong>Global Understanding:</strong> How religion influences billions of people's lives</li>
+                    <li><strong>Ethical Reasoning:</strong> How to think through complex moral problems</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Why Religious Studies?</h2>
+                <p class="content-text">Religion shapes human history, culture, and society. Understanding different faiths helps you make sense of our diverse world. Develops critical thinking and respect for different perspectives – valuable skills for any career and life.</p>
+                <p class="content-text" style="margin-top: 10px;">Religion is increasingly relevant in news, politics, and social issues worldwide. Universities value Religious Studies GCSE because it shows you can think about complex moral questions.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Law & Justice:</strong> Solicitor, barrister, judge, criminal justice</li>
+                    <li><strong>Social Work & Counseling:</strong> Supporting vulnerable people, understanding cultural sensitivity</li>
+                    <li><strong>Journalism & Media:</strong> Reporting on religious and social issues responsibly</li>
+                    <li><strong>Education:</strong> Religious Studies teacher, education officer</li>
+                    <li><strong>NGOs & Charity:</strong> Human rights organizations, religious charities, aid work</li>
+                    <li><strong>Government & Policy:</strong> Social policy, community relations</li>
+                    <li><strong>Psychology & Sociology:</strong> Understanding human behavior and society</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 Important Note</h2>
+                <p class="content-text"><strong>This is NOT a course for converting people or promoting any religion.</strong> Religious Studies is academic – you learn ABOUT religions, not for the purpose of joining them. All viewpoints (religious and non-religious) are respected and explored.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mrs Hawthorne</strong> – <span data-teacher="hawthorne">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer optional">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Further Maths -->
+        <div class="page" id="further-mathsPage">
+            <div class="course-page-header optional">
+                <span class="subject-icon-large">🔢</span>
+                <h1>Level 2 Further Maths</h1>
+                <span class="course-badge">OPTIONAL - Level 2 Certificate</span>
+            </div>
+
+            <div class="course-section optional" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> Level 2 Mathematical Thinking – an additional qualification you do alongside GCSE Maths</p>
+                <p class="content-text" style="margin-top: 10px;">Further Maths covers topics you'll see at A-Level. It's taught in early morning sessions before school starts. Only for students aiming for top grades in GCSE Maths and planning to study Maths (or Physics/Engineering) at university.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>⚠️ Entry Requirement</h2>
+                <div class="warning-box">
+                    <strong>Usually Grade 8+ predicted in GCSE Maths.</strong> Grade 7 is possible on an individual basis after discussion with teachers. <strong>ONLY consider this if you plan to study A-Level Maths</strong> – it requires significant independent study and commitment.
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Topics that appear at A-Level and beyond:</p>
+                <ul class="content-list">
+                    <li><strong>Advanced Algebra:</strong> Quadratic equations, polynomials, algebraic manipulation beyond GCSE level</li>
+                    <li><strong>Calculus Introduction:</strong> Derivatives (understanding rates of change), functions, integration basics</li>
+                    <li><strong>Geometry & Coordinates:</strong> Coordinate geometry, transformations, matrices and their applications</li>
+                    <li><strong>Proof & Logic:</strong> Mathematical proof, logic puzzles, problem-solving at a higher level</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>⏰ Timing & Commitment</h2>
+                <p class="content-text"><strong>Early morning sessions:</strong> Monday & Friday 7:45-8:45 AM (before school starts)</p>
+                <p class="content-text" style="margin-top: 10px;"><strong>Important:</strong> This means early starts. You'll need to be organized with homework and revision. The course requires independent work beyond lessons. This is a serious commitment.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Two Papers:</strong><br>
+                    • <strong>Paper 1 (Non-calculator):</strong> 1 hour 45 minutes – 50% of grade<br>
+                    • <strong>Paper 2 (Calculator allowed):</strong> 1 hour 45 minutes – 50% of grade<br>
+                    <br><em>Grades awarded: 4-9 (no grade below 4)</em>
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Why Further Maths?</h2>
+                <p class="content-text">Head start on A-Level content. Universities LOVE seeing Further Maths because it shows genuine mathematical ability. Increases your competitiveness for engineering, physics, mathematics, and science degrees. If you want to study these subjects at top universities, Further Maths is a real advantage.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Is It Right for You?</h2>
+                <p class="content-text"><strong>YES if:</strong> You genuinely LOVE maths. You find GCSE Maths easy. You want to study Maths/Physics/Engineering at A-Level and university. You're self-motivated and can work independently. You're okay with early mornings.</p>
+                <p class="content-text"><strong>NO if:</strong> Maths is hard for you. You're just doing it because people told you to. You're already struggling with other subjects. You need your mornings free for other commitments.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Engineering:</strong> Civil, mechanical, electrical, software engineering</li>
+                    <li><strong>Physics & Astronomy:</strong> Research, space agencies, scientific discovery</li>
+                    <li><strong>Mathematics:</strong> Pure or applied mathematics research, university lecturer</li>
+                    <li><strong>Finance & Economics:</strong> Quantitative analyst, economist, financial modeling</li>
+                    <li><strong>Data Science & AI:</strong> Advanced mathematics is essential</li>
+                    <li><strong>Computer Science:</strong> Algorithm design, computational mathematics</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mr. Wood</strong> – <span data-teacher="wood">Contact through Teams</span></p>
+                <p class="content-text" style="margin-top: 10px;">Talk to Mr. Wood if you're interested – he can discuss whether it's right for you and what to expect.</p>
+            </div>
+
+            <div class="course-footer optional">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Creative iMedia -->
+        <div class="page" id="creative-imediaPage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">🎮</span>
+                <h1>OCR Creative iMedia</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> OCR Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Creative iMedia is for digital designers and creators. You'll learn to design graphics, websites, and interactive media. Perfect alternative if you didn't get Computer Science but want technology with a creative focus. Less coding, more design.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 Alternative to Computer Science</h2>
+                <p class="content-text"><strong>Can't do Computer Science?</strong> Creative iMedia is an excellent alternative if you want a tech/design career. You get technology skills with creative expression rather than heavy programming. Both are valuable – choose based on whether you prefer coding or design.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Create</h2>
+                <p class="content-text">Three main projects over the course:</p>
+                <ul class="content-list">
+                    <li><strong>Unit 1 - Media Industry Knowledge:</strong> Learn how the creative media industry works. Understand design factors, user needs, pre-production planning. Study real media products and what makes them effective.</li>
+                    <li><strong>Unit 2 - Design Project:</strong> Create visual identities and digital graphics for a client brief. Design logos, branding, marketing materials. Shows your design skills and creative thinking.</li>
+                    <li><strong>Unit 3 - Interactive Media Product:</strong> Plan, create, and review an interactive digital product (website, app interface, interactive content). Build something functional that users interact with.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Three Components:</strong><br>
+                    • <strong>Written Exam on Media Industry (40%):</strong> 1 hour 30 minutes – questions about the creative industry<br>
+                    • <strong>Unit 2 Design Project (25%):</strong> Create graphics/visual identity to a set brief<br>
+                    • <strong>Unit 3 Interactive Media (35%):</strong> Create an interactive digital product to a set brief<br>
+                    <br><em>Mostly practical coursework – design and creation work</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Design Thinking:</strong> How to approach a design problem, research user needs, create solutions</li>
+                    <li><strong>Digital Tools:</strong> Industry-standard software (Adobe Creative Suite or similar) for graphics, video, web design</li>
+                    <li><strong>User Experience (UX):</strong> Making digital products that people find easy and enjoyable to use</li>
+                    <li><strong>Project Management:</strong> Planning creative projects, managing time and resources</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Perfect For</h2>
+                <ul class="content-list">
+                    <li>Aspiring graphic designers</li>
+                    <li>Website designers</li>
+                    <li>Game UI/UX designers</li>
+                    <li>Digital marketers</li>
+                    <li>Anyone who loves visual creativity and technology</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Graphic Design:</strong> Create visuals for brands, marketing, print, digital</li>
+                    <li><strong>Web Design & UX:</strong> Design websites and digital interfaces</li>
+                    <li><strong>Game Design:</strong> Interface design, concept art, user experience in games</li>
+                    <li><strong>Digital Marketing:</strong> Create visual content for social media, advertising</li>
+                    <li><strong>Animation & Video:</strong> Create animated graphics, video content, motion design</li>
+                    <li><strong>App Development:</strong> User interface design for mobile and desktop applications</li>
+                    <li><strong>Media & Entertainment:</strong> Television, film, streaming services design work</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mr. Khan</strong> – <span data-teacher="khan">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Business Studies -->
+        <div class="page" id="business-studiesPage">
+            <div class="course-page-header optional">
+                <span class="subject-icon-large">📊</span>
+                <h1>GCSE Business Studies</h1>
+                <span class="course-badge">OPTIONAL - GCSE</span>
+            </div>
+
+            <div class="course-section optional" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Exam Board:</strong> Edexcel – the organization that runs this exam</p>
+                <p class="content-text" style="margin-top: 10px;">Business Studies teaches you how businesses work, from small shops to multinational corporations. You'll learn about finance, marketing, operations, and managing people – skills that apply everywhere.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Five main business topics:</p>
+                <ul class="content-list">
+                    <li><strong>Business Activity & Objectives:</strong> What businesses do and why. How they start, what they aim for, different business structures.</li>
+                    <li><strong>Business Operations:</strong> How businesses actually run. Production, quality control, resources, supply chains. How businesses become efficient.</li>
+                    <li><strong>Finance & Accounting:</strong> Money management. Profit, cash flow, financial planning, budgeting. Why businesses need to manage money carefully.</li>
+                    <li><strong>Marketing:</strong> Understanding customers and selling to them. Market research, pricing, advertising, customer loyalty.</li>
+                    <li><strong>Human Resources (HR):</strong> Managing people. Recruitment, training, motivation, employment rights. Good HR makes businesses successful.</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Two Exams (No Coursework):</strong><br>
+                    • <strong>Marketing & Finance Themes (50%):</strong> 1 hour 45 minutes – exam on marketing and money management<br>
+                    • <strong>Operations & HR Themes (50%):</strong> 1 hour 45 minutes – exam on how businesses run and manage people<br>
+                    <br><em>All written exams – test business knowledge and analysis skills</em>
+                </div>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Economic Thinking:</strong> How markets work, supply and demand, competition</li>
+                    <li><strong>Problem-Solving:</strong> Analyze business problems and suggest solutions</li>
+                    <li><strong>Analysis Skills:</strong> Understand data, financial reports, market trends</li>
+                    <li><strong>Business Communication:</strong> Explain business concepts clearly</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>💡 Why Business Studies?</h2>
+                <p class="content-text">Understanding business helps you understand the world – jobs, money, economy, technology. Every organisation (schools, hospitals, charities) runs on business principles. Whether you want to run your own business, work in management, or just understand how the economy works, Business Studies is useful.</p>
+                <p class="content-text" style="margin-top: 10px;"><strong>For International Students:</strong> Business principles are universal. GCSE Business is recognized globally and shows you understand how organizations function.</p>
+            </div>
+
+            <div class="course-section optional">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Entrepreneurship:</strong> Run your own business</li>
+                    <li><strong>Business Management:</strong> General management, operations management</li>
+                    <li><strong>Finance:</strong> Accountancy, financial analysis, investment banking</li>
+                    <li><strong>Marketing:</strong> Brand management, marketing management, market research</li>
+                    <li><strong>HR Management:</strong> Recruitment, training, organizational development</li>
+                    <li><strong>Business Consultancy:</strong> Advise companies on improvements</li>
+                    <li><strong>Economics & Policy:</strong> Government, central banks, international organizations</li>
+                </ul>
+            </div>
+
+            <div class="course-section optional">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mr A. Iqbal</strong> – <span data-teacher="iqbal">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer optional">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Retail Business -->
+        <div class="page" id="retail-businessPage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">🛍️</span>
+                <h1>WJEC Retail Business</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> WJEC Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Retail Business focuses on the practical side of selling – what actually happens in shops, customer service, and display. Much more practical than GCSE Business, and specific to retail careers.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Three main units:</p>
+                <ul class="content-list">
+                    <li><strong>Unit 1 - Retail Industry Knowledge:</strong> How different types of retail businesses work (shops, department stores, online, etc). Retail management, stock control, point-of-sale systems. Understanding the retail sector.</li>
+                    <li><strong>Unit 2 - Customer Service in Retail:</strong> How to provide excellent customer service. Dealing with customer issues, meeting customer needs, complaint handling. Communication skills essential in retail.</li>
+                    <li><strong>Unit 3 - Visual Merchandising:</strong> Making products look attractive to customers. Window displays, shelf arrangement, using color and lighting to encourage sales. Practical skills you'll use every day in retail.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Three Components:</strong><br>
+                    • <strong>Written Exam on Retail Business (40%):</strong> 1 hour – theory questions about retail industry and management<br>
+                    • <strong>Customer Service Coursework (30%):</strong> Practical assessment of your customer service skills<br>
+                    • <strong>Merchandising Coursework (30%):</strong> Practical project creating displays and merchandise plans<br>
+                    <br><em>Mix of exam (40%) and practical coursework (60%)</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 Retail Business vs GCSE Business</h2>
+                <ul class="content-list">
+                    <li><strong>GCSE Business:</strong> Broad business knowledge across all industries. Marketing, finance, HR, theory-focused.</li>
+                    <li><strong>Retail Business:</strong> Specific to retail. Much more practical. Customer service and display skills. Perfect if you want a retail career.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Customer Service Skills:</strong> Communication, problem-solving, handling difficult situations</li>
+                    <li><strong>Visual Design:</strong> Creating attractive displays that sell products</li>
+                    <li><strong>Retail Operations:</strong> Stock control, health & safety, point-of-sale systems</li>
+                    <li><strong>Sales Skills:</strong> Understanding customer needs, recommending products</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Perfect For</h2>
+                <ul class="content-list">
+                    <li>Career in retail management</li>
+                    <li>Shop ownership plans</li>
+                    <li>Visual merchandising interests</li>
+                    <li>Customer service roles</li>
+                    <li>Retail supervisory positions</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Retail Management:</strong> Shop manager, store manager, assistant manager</li>
+                    <li><strong>Visual Merchandising:</strong> Window dresser, display designer for retail chains</li>
+                    <li><strong>Customer Service:</strong> Customer service supervisor, retail assistant roles</li>
+                    <li><strong>Stock & Inventory:</strong> Stock controller, warehouse supervisor in retail</li>
+                    <li><strong>Retail Supervisory Roles:</strong> Team leader, floor supervisor</li>
+                    <li><strong>Retail Entrepreneurship:</strong> Opening your own shop or business</li>
+                    <li><strong>E-commerce:</strong> Online retail management</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Miss N. Deasy</strong> – <span data-teacher="deasy">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Child Development -->
+        <div class="page" id="child-developmentPage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">👶</span>
+                <h1>OCR Child Development</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> OCR Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Child Development teaches you about babies and young children – how they grow, what they need, how to care for them. Practical course combining learning with hands-on experience working with children.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Three main units:</p>
+                <ul class="content-list">
+                    <li><strong>Unit 1 - Pregnancy & Birth:</strong> Human reproduction, pregnancy, antenatal care (care during pregnancy), labor, postnatal care (care after birth). Understanding how babies come into the world and how new mothers are supported.</li>
+                    <li><strong>Unit 2 - Nutritional & Physical Needs (0-5 years):</strong> What babies and young children need to grow healthy. Feeding babies (breast and formula), introducing solids, nutrition for toddlers. Equipment and safety for babies.</li>
+                    <li><strong>Unit 3 - Child Development (0-5 years):</strong> How children grow and develop physically, intellectually, emotionally, and socially. Milestones (walking, talking, etc). Developmental stages. Play and learning for young children.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Two Components:</strong><br>
+                    • <strong>Written Exam (50%):</strong> 1 hour 15 minutes – theory questions about child development, nutrition, care<br>
+                    • <strong>Coursework Linked to Practical Experience (50%):</strong> Based on working with actual children or case studies. Shows understanding through practical application<br>
+                    <br><em>Mix of theory exam (50%) and practical coursework (50%)</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Child Care Skills:</strong> Feeding, changing, soothing, safety, hygiene</li>
+                    <li><strong>Child Development Understanding:</strong> Recognizing developmental milestones and variations</li>
+                    <li><strong>Play & Learning:</strong> How children learn through play, selecting appropriate toys and activities</li>
+                    <li><strong>Communication:</strong> Communicating effectively with children and parents</li>
+                    <li><strong>Health & Nutrition:</strong> Understanding baby and toddler nutrition and health</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>⚠️ Practical Experience</h2>
+                <div class="warning-box">
+                    You'll need opportunities to work with young children (0-5) during this course. This might be in school nurseries, childcare settings, or through observation and case study. This is essential for the coursework component.
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Perfect For</h2>
+                <ul class="content-list">
+                    <li>Future childcare workers or nursery nurses</li>
+                    <li>Interested in child health and development</li>
+                    <li>Planning to become a primary school teacher (good foundation)</li>
+                    <li>Social work or health visitor pathway</li>
+                    <li>Midwifery interests</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Childcare & Nursery:</strong> Nursery nurse, childcare worker, key person in early years</li>
+                    <li><strong>Education:</strong> Primary school teacher, teaching assistant in early years</li>
+                    <li><strong>Health:</strong> Health visitor, midwife, pediatric nurse, health promotion officer</li>
+                    <li><strong>Social Care:</strong> Social worker, family support worker</li>
+                    <li><strong>Children's Services:</strong> Child protection officer, early intervention officer</li>
+                    <li><strong>Maternal & Child Health:</strong> Working with families and newborns</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Miss Deasy</strong> – <span data-teacher="deasy">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Health & Social Care -->
+        <div class="page" id="health-social-carePage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">🏥</span>
+                <h1>BTEC Health & Social Care</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> BTEC Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Health & Social Care teaches you about looking after people's health and wellbeing. Understanding human development, how healthcare services work, and factors that affect health. Practical course combining theory with real-world applications.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Three main units:</p>
+                <ul class="content-list">
+                    <li><strong>Unit 1 - Human Lifespan Development:</strong> How people develop physically, intellectually, emotionally, and socially from birth through childhood, adolescence, adulthood, to old age. Understanding life changes and challenges at different ages.</li>
+                    <li><strong>Unit 2 - Health Services & Care Values:</strong> How the NHS (National Health Service) works and other care services. Care values like respect, confidentiality, equality. Ethics of working in healthcare. Supporting vulnerable people.</li>
+                    <li><strong>Unit 3 - Health & Wellbeing:</strong> Factors affecting health (diet, exercise, mental health, relationships). How to promote health. Creating health improvement plans. Preventing illness and promoting healthy lifestyles.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Three Components:</strong><br>
+                    • <strong>Unit 1 - Human Development (30%):</strong> Coursework assignment on lifespan development<br>
+                    • <strong>Unit 2 - Services & Care Values (30%):</strong> Coursework assignment on healthcare systems and values<br>
+                    • <strong>Unit 3 - Health & Wellbeing (40%):</strong> External exam (exam board sets the questions)<br>
+                    <br><em>Balanced: 60% coursework (practical work) + 40% exam</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Care Skills:</strong> How to support people's physical and emotional health</li>
+                    <li><strong>Communication:</strong> Communicating sensitively with vulnerable people</li>
+                    <li><strong>Health Promotion:</strong> How to encourage healthy lifestyles</li>
+                    <li><strong>Understanding Needs:</strong> Recognizing different people's health needs at different life stages</li>
+                    <li><strong>Ethical Practice:</strong> Confidentiality, respect, equality in care settings</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Perfect For</h2>
+                <ul class="content-list">
+                    <li>Future nurses and healthcare professionals</li>
+                    <li>Social work pathway</li>
+                    <li>Counseling or therapy interests</li>
+                    <li>Care work careers</li>
+                    <li>People who want to help others</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Nursing:</strong> Registered nurse, nursing associate, healthcare assistant</li>
+                    <li><strong>Healthcare:</strong> Midwife, paramedic, radiographer, physiotherapist</li>
+                    <li><strong>Social Work:</strong> Social worker, care coordinator, family support worker</li>
+                    <li><strong>Therapy & Counseling:</strong> Counselor, therapist, mental health practitioner</li>
+                    <li><strong>Care Services:</strong> Residential care worker, community care worker, support worker</li>
+                    <li><strong>Health Promotion:</strong> Public health specialist, health educator</li>
+                    <li><strong>NHS & Public Health:</strong> Various roles supporting people's health</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 Industry Context</h2>
+                <p class="content-text">The NHS is one of the UK's largest employers with thousands of job openings. Healthcare sector is growing. Aging population means increased demand for care. Job security and good career progression in health and social care. Highly rewarding work helping people.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Miss Deasy</strong> – <span data-teacher="deasy">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Sports Studies -->
+        <div class="page" id="sports-studiesPage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">⚽</span>
+                <h1>OCR Sports Studies</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> OCR Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Sports Studies teaches you about sports as an industry and profession. You'll analyze sports issues, develop your own sports performance, and learn coaching skills. For students passionate about sport who want to understand it beyond just playing.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>⚠️ Entry Requirements</h2>
+                <div class="warning-box">
+                    <strong>Must be predicted Grade 6+ in PE AND participate in competitive sport.</strong> This means you need to be actively involved in competitive sports (school teams or community clubs). This isn't just for "good athletes" – it's for committed sports participants of any level.
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Three main units:</p>
+                <ul class="content-list">
+                    <li><strong>Unit 1 - Contemporary Issues in Sport:</strong> Barriers to sport participation (cost, ability, disability, gender). Doping and cheating in sport. Funding and sponsorship. Technology in sport (VAR in football, hawk-eye in tennis). How sport affects society.</li>
+                    <li><strong>Unit 2 - Performance & Leadership:</strong> Analyze your own sports performance and others'. Develop coaching skills and lead sports activities. Plan training sessions. Understand what makes a good coach and leader. Develop your own performance in your sport.</li>
+                    <li><strong>Unit 3 - Sport in Media & Culture:</strong> How sports are covered by media (TV, social media, newspapers). Positive and negative effects of media on sports. Celebrity athletes and their influence. Sports culture and how it influences society.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Three Components:</strong><br>
+                    • <strong>Contemporary Issues (40%):</strong> 1 hour 15 minutes written exam on sports issues<br>
+                    • <strong>Performance & Leadership (40%):</strong> Practical coursework – your performance in your sport + coaching others<br>
+                    • <strong>Sport in Media (20%):</strong> Coursework assignment analyzing media representation of sports<br>
+                    <br><em>Mix of exam (40%) and practical/coursework (60%)</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Sports Analysis:</strong> Understanding why barriers exist and how to overcome them</li>
+                    <li><strong>Coaching Skills:</strong> How to teach others and lead sports activities</li>
+                    <li><strong>Performance Development:</strong> Analyzing and improving your own sports performance</li>
+                    <li><strong>Critical Thinking:</strong> How media and society interact with sport</li>
+                    <li><strong>Leadership:</strong> Developing confidence and responsibility in sports settings</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Why Sports Studies?</h2>
+                <p class="content-text">The sports industry is massive and growing. Millions of jobs in fitness, coaching, management, media, sports development. Professional footballers are famous, but there are thousands of careers in sports. This course prepares you for any sports-related career while letting you stay involved in your sport.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Coaching:</strong> Sports coach, head coach, specialist coaching (technique-specific)</li>
+                    <li><strong>PE Teaching:</strong> Physical Education teacher in schools</li>
+                    <li><strong>Sports Management:</strong> Club management, event organization</li>
+                    <li><strong>Sports Development:</strong> Community sports programs, increasing participation</li>
+                    <li><strong>Professional Sports:</strong> Playing at higher levels, semi-professional teams</li>
+                    <li><strong>Sports Science:</strong> Analysis, performance optimization, nutrition for athletes</li>
+                    <li><strong>Fitness Industry:</strong> Gym instructor, personal trainer, fitness supervisor</li>
+                    <li><strong>Sports Media:</strong> Commentary, analysis, sports journalism, photography</li>
+                    <li><strong>Sports Psychology:</strong> Mental coaching, athlete support</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Mr. Stimpson</strong> – <span data-teacher="stimpson">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Hospitality & Catering -->
+        <div class="page" id="hospitality-cateringPage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">👨‍🍳</span>
+                <h1>WJEC Hospitality & Catering</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> WJEC Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Hospitality & Catering teaches you to cook and manage food in professional settings. You'll learn food safety, menu planning, cooking techniques, and how to present food. Very practical course with 12 hours of hands-on cooking assessment.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Two main units:</p>
+                <ul class="content-list">
+                    <li><strong>Unit 1 - Hospitality Industry Knowledge:</strong> How hotels, restaurants, catering companies work. Food safety and hygiene (absolutely essential in food). Health and sanitation regulations. Planning menus for different occasions and dietary needs. Costing and budgeting for food service.</li>
+                    <li><strong>Unit 2 - Practical Cooking & Service:</strong> Plan complete menus, prepare and cook actual dishes, plate and present food beautifully, evaluate your cooking. You'll spend supervised time actually cooking in school kitchens and creating portfolios of your dishes.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🍳 The Practical Component</h2>
+                <p class="content-text">This is a real cooking course. You'll spend <strong>12 hours of controlled practical time</strong> planning and preparing menus. You cook real food to real standards. The assessment is based on your actual cooking ability, food safety, hygiene, and how well you present dishes.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Two Components:</strong><br>
+                    • <strong>Written Exam (40%):</strong> 1 hour 20 minutes – questions about food safety, industry knowledge, menu planning<br>
+                    • <strong>Practical Cooking Coursework (60%):</strong> 12 hours of controlled practical time where you plan and prepare menus<br>
+                    <br><em>Very hands-on: 60% is actual cooking assessment</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Cooking Skills:</strong> Knife skills, food preparation techniques, heat control, timing</li>
+                    <li><strong>Food Safety:</strong> Hygiene, food storage, preventing foodborne illness (critical in catering)</li>
+                    <li><strong>Menu Planning:</strong> Balanced meals, dietary requirements, costing, sustainability</li>
+                    <li><strong>Food Presentation:</strong> Plating, aesthetics, professional food service standards</li>
+                    <li><strong>Industry Knowledge:</strong> How catering businesses operate and what customers expect</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>⚠️ Important Requirements</h2>
+                <div class="warning-box">
+                    You must be willing to work with food and meet strict hygiene standards. This includes wearing chef's whites, maintaining cleanliness, and following food safety procedures precisely. Not just a theory course – expect to be cooking regularly.
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Why Hospitality & Catering?</h2>
+                <p class="content-text">The hospitality and food industry is UK's 3rd largest private employer with over 3 million jobs. Growing sector. Good wages. Job security. Opportunities to travel (work in hotels worldwide). Career progression from chef to head chef to restaurant owner. Growth in celebrity chefs and food TV means it's a respected career.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Chef:</strong> Develop from commis chef (apprentice) to head chef, running kitchens in restaurants</li>
+                    <li><strong>Catering Manager:</strong> Manage catering for events, corporate functions, weddings</li>
+                    <li><strong>Restaurant Owner:</strong> Start your own restaurant or food business</li>
+                    <li><strong>Hotel & Resort Work:</strong> Kitchen management in hospitality settings</li>
+                    <li><strong>Food Service Supervision:</strong> School kitchens, hospital catering, corporate dining</li>
+                    <li><strong>Specialist Catering:</strong> Dietary specialist (vegan, halal, kosher, allergy-free cooking)</li>
+                    <li><strong>Culinary Tourism:</strong> Food tour guides, cooking classes, food experience design</li>
+                    <li><strong>Food Development:</strong> Recipe development, food product creation</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teacher</h2>
+                <p class="content-text"><strong>Miss Bloor</strong> – <span data-teacher="bloor">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+
+        <!-- Travel & Tourism -->
+        <div class="page" id="travel-tourismPage">
+            <div class="course-page-header vocational">
+                <span class="subject-icon-large">✈️</span>
+                <h1>BTEC Travel & Tourism</h1>
+                <span class="course-badge">OPTIONAL - Vocational Level 1/2</span>
+            </div>
+
+            <div class="course-section vocational" style="background: rgba(94, 179, 246, 0.05); border-left: 4px solid rgba(94, 179, 246, 0.3);">
+                <div style="color: #a0a0a0; font-style: italic; margin-bottom: 15px;">[Prefect Text (Custom)] - Space for additional course introduction or promotional text</div>
+                <div style="background: #252540; border: 2px dashed rgba(94, 179, 246, 0.3); padding: 30px; text-align: center; color: #5eb3f6; margin: 15px 0;">
+                    [Videos/Images] - Space for course preview videos or subject images
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📋 About This Course</h2>
+                <p class="content-text"><strong>Qualification Type:</strong> BTEC Level 1/2 Vocational – recognized UK qualification (equivalent to GCSE grades 5-9)</p>
+                <p class="content-text" style="margin-top: 10px;">Travel & Tourism teaches you about the global tourism industry. You'll learn about destinations, customer needs, and how tourism impacts the world. Practical course combining business knowledge with travel industry skills.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>📝 What You'll Study</h2>
+                <p class="content-text">Three main units:</p>
+                <ul class="content-list">
+                    <li><strong>Unit 1 - Travel & Tourism Sector:</strong> How the tourism industry works. Types of organizations (tour operators, travel agents, hotels, airlines). Global tourism patterns. What makes destinations attractive and popular.</li>
+                    <li><strong>Unit 2 - Customer Needs in Travel & Tourism:</strong> Understanding different types of tourists and their needs. Planning holidays for specific customers. Sustainable and responsible tourism. How organizations keep customers happy.</li>
+                    <li><strong>Unit 3 - Global Impacts of Tourism:</strong> Positive and negative effects of tourism on destinations. Environmental impact, cultural change, economic benefits. Sustainable tourism practices and how to minimize damage to destinations.</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🎯 Assessment</h2>
+                <div class="assessment-box">
+                    <strong>Three Components:</strong><br>
+                    • <strong>Unit 1 - Tourism Sector Coursework (30%):</strong> Assignment on tourism organizations and destinations<br>
+                    • <strong>Unit 2 - Customer Needs Coursework (30%):</strong> Plan holiday packages for different customers<br>
+                    • <strong>Unit 3 - Global Impacts (External Exam, 40%):</strong> 1 hour written exam on tourism impacts<br>
+                    <br><em>Mix of practical coursework (60%) and exam (40%)</em>
+                </div>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>💡 What You'll Learn</h2>
+                <ul class="content-list">
+                    <li><strong>Industry Knowledge:</strong> How tourism businesses operate and make money</li>
+                    <li><strong>Customer Service:</strong> Meeting customer needs and solving travel problems</li>
+                    <li><strong>Global Awareness:</strong> Understanding different cultures and destinations</li>
+                    <li><strong>Sustainability:</strong> Responsible tourism and protecting environments</li>
+                    <li><strong>Research Skills:</strong> Finding information about destinations and planning travel</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Why Tourism?</h2>
+                <p class="content-text">Tourism is one of the UK's largest industries. Every year, millions of tourists visit the UK and millions of Brits travel abroad. The sector is growing and creates jobs across hospitality, transport, attractions, and services. Job opportunities include working abroad, flexible hours, travel benefits, and meeting people from around the world.</p>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>🌟 Career Connections</h2>
+                <ul class="content-list">
+                    <li><strong>Tour Guide:</strong> Lead groups on tours of destinations</li>
+                    <li><strong>Travel Agent:</strong> Plan holidays and sell travel packages</li>
+                    <li><strong>Hotel Management:</strong> Manage hotels, resorts, guest houses</li>
+                    <li><strong>Cruise Staff:</strong> Work on cruise ships (cabin crew, activities, hospitality)</li>
+                    <li><strong>Tourism Development:</strong> Promote destinations, tourism boards</li>
+                    <li><strong>Event Tourism:</strong> Organize tourism events and attractions</li>
+                    <li><strong>Adventure Tourism:</strong> Outdoor activities, expedition leading, eco-tourism</li>
+                    <li><strong>International Hospitality:</strong> Work in tourism positions worldwide</li>
+                </ul>
+            </div>
+
+            <div class="course-section vocational">
+                <h2>👥 Contact Your Teachers</h2>
+                <p class="content-text"><strong>Miss Twyford</strong> – <span data-teacher="twyford">Contact through Teams</span><br><strong>Miss Deasy</strong> – <span data-teacher="deasy">Contact through Teams</span></p>
+            </div>
+
+            <div class="course-footer vocational">
+                <button onclick="goHome()">← Back to All Courses</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Q3 Academy Langley - KS4 Pathways Guide</p>
+        <p style="font-size: 0.9em; margin-top: 10px; color: #666;">For questions, contact your form tutor or visit the relevant subject teacher</p>
+    </footer>
+
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <script>
+        // Email addresses stored encoded to avoid antivirus detection in source
+        const teacherEmails = {
+            'singh': { name: 'Mr. Singh', email: 'r' + 'singh' + '@lan.merciantrust.org.uk' },
+            'parpagga': { name: 'Mr Parpagga', email: 'j' + 'parpagga' + '@lan.merciantrust.org.uk' },
+            'koasha': { name: 'Mrs. Koasha', email: 's' + 'koasha' + '@lan.merciantrust.org.uk' },
+            'gilhooley': { name: 'Miss Gilhooley', email: 'e' + 'gilhooley' + '@lan.merciantrust.org.uk' },
+            'dale': { name: 'Mr. Dale', email: 'r' + 'dale' + '@lan.merciantrust.org.uk' },
+            'markwick': { name: 'Mrs. Markwick', email: 'm' + 'markwick' + '@lan.merciantrust.org.uk' },
+            'barlow': { name: 'Mrs. Barlow', email: 's' + 'barlow' + '@lan.merciantrust.org.uk' },
+            'morrall': { name: 'Mrs. Morrall', email: 'l' + 'morrall' + '@lan.merciantrust.org.uk' },
+            'khan': { name: 'Mr. Khan', email: 'm' + 'khan' + '@lan.merciantrust.org.uk' },
+            'hawthorne': { name: 'Mrs Hawthorne', email: 'k' + 'hawthorne' + '@lan.merciantrust.org.uk' },
+            'gibbs': { name: 'Miss Gibbs', email: 'j' + 'gibbs' + '@lan.merciantrust.org.uk' },
+            'wood': { name: 'Mr. Wood', email: 's' + 'wood' + '@lan.merciantrust.org.uk' },
+            'iqbal': { name: 'Mr A. Iqbal', email: 'a' + 'iqbal' + '@lan.merciantrust.org.uk' },
+            'deasy': { name: 'Miss Deasy', email: 'n' + 'deasy' + '@lan.merciantrust.org.uk' },
+            'twyford': { name: 'Miss Twyford', email: 'l' + 'twyford' + '@lan.merciantrust.org.uk' },
+            'bloor': { name: 'Miss Bloor', email: 's' + 'bloor' + '@lan.merciantrust.org.uk' },
+            'stimpson': { name: 'Mr Stimpson', email: 'm' + 'stimpson' + '@lan.merciantrust.org.uk' }
+        };
+
+        // Replace all teacher email placeholders on page load
+        window.addEventListener('load', function() {
+            document.querySelectorAll('[data-teacher]').forEach(element => {
+                const teacherKey = element.getAttribute('data-teacher');
+                const teacher = teacherEmails[teacherKey.toLowerCase()];
+                if (teacher) {
+                    element.innerHTML = '<a href="mailto:' + teacher.email + '">' + teacher.email + '</a>';
+                }
+            });
+        });
+
+        // Track scroll position when leaving home page
+        let homeScrollPosition = 0;
+
+        function goToPage(pageId) {
+            // Save current scroll position before leaving
+            homeScrollPosition = window.scrollY;
+            
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId + 'Page').classList.add('active');
+            document.getElementById('navBack').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function goHome() {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('homePage').classList.add('active');
+            document.getElementById('navBack').classList.remove('active');
+            // Restore previous scroll position instead of going to top
+            window.scrollTo(0, homeScrollPosition);
+        }
+    </script>
+</body>
+</html>
